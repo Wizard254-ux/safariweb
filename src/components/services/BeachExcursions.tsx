@@ -12,62 +12,61 @@ interface BeachExperience {
   price: string;
 }
 
+export const beachExperiences: BeachExperience[] = [
+  {
+    id: 'diani-beach-retreat',
+    title: 'Diani Beach Luxury Retreat',
+    location: 'Diani Beach',
+    image: 'https://images.pexels.com/photos/18558205/pexels-photo-18558205/free-photo-of-a-beach-hut-with-a-thatched-roof-on-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Experience the pristine white sands and turquoise waters of Diani Beach, one of Kenya\'s most beautiful coastal destinations with world-class water activities.',
+    features: [
+      '7 nights in oceanfront accommodation',
+      'Daily breakfast and dinner',
+      'Snorkeling excursion to coral reefs',
+      'Sunset dhow cruise with dinner'
+    ],
+    price: '$1,850 per person'
+  },
+  {
+    id: 'lamu-island-escape',
+    title: 'Lamu Island Cultural Escape',
+    location: 'Lamu Archipelago',
+    image: 'https://images.pexels.com/photos/31963809/pexels-photo-31963809/free-photo-of-aerial-view-of-tropical-beach-with-boats.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Discover the UNESCO World Heritage site of Lamu Old Town while enjoying pristine beaches and the unique Swahili culture of this ancient island.',
+    features: [
+      '5 nights in traditional Swahili house',
+      'Private boat tours of the archipelago',
+      'Guided tour of Lamu Old Town',
+      'Seafood dinner under the stars'
+    ],
+    price: '$2,150 per person'
+  },
+  {
+    id: 'watamu-marine-adventure',
+    title: 'Watamu Marine Adventure',
+    location: 'Watamu',
+    image: 'https://images.pexels.com/photos/23476888/pexels-photo-23476888/free-photo-of-view-of-people-swimming-in-the-sea.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Explore the Watamu Marine National Park with its spectacular coral gardens, diverse marine life, and gorgeous beaches perfect for relaxation and water sports.',
+    features: [
+      '6 nights beachfront accommodation',
+      'Marine park snorkeling tour',
+      'Dolphin watching excursion',
+      'Turtle conservation experience'
+    ],
+    price: '$1,650 per person'
+  }
+];
 export const BeachExcursions: React.FC = () => {
   // In a real application, you'd use react-router-dom for navigation
+  const navigate=useNavigate()
   // const navigate = useNavigate();
   
   const handleExperienceClick = (id: string) => {
     // In a real application, this would navigate to the detail page
-    const navigate=useNavigate()
-    navigate(`/Details/${id}/BeachExcursions`);
+    navigate(`/Details/${id}/beachExcursions`);
     console.log(`Navigating to detail page for ${id}`);
-    alert(`Viewing details for ${id}. In a real app, this would navigate to a detailed page.`);
   };
 
-  const beachExperiences: BeachExperience[] = [
-    {
-      id: 'diani-beach-retreat',
-      title: 'Diani Beach Luxury Retreat',
-      location: 'Diani Beach',
-      image: 'https://images.pexels.com/photos/18558205/pexels-photo-18558205/free-photo-of-a-beach-hut-with-a-thatched-roof-on-the-sand.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Experience the pristine white sands and turquoise waters of Diani Beach, one of Kenya\'s most beautiful coastal destinations with world-class water activities.',
-      features: [
-        '7 nights in oceanfront accommodation',
-        'Daily breakfast and dinner',
-        'Snorkeling excursion to coral reefs',
-        'Sunset dhow cruise with dinner'
-      ],
-      price: '$1,850 per person'
-    },
-    {
-      id: 'lamu-island-escape',
-      title: 'Lamu Island Cultural Escape',
-      location: 'Lamu Archipelago',
-      image: 'https://images.pexels.com/photos/31963809/pexels-photo-31963809/free-photo-of-aerial-view-of-tropical-beach-with-boats.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Discover the UNESCO World Heritage site of Lamu Old Town while enjoying pristine beaches and the unique Swahili culture of this ancient island.',
-      features: [
-        '5 nights in traditional Swahili house',
-        'Private boat tours of the archipelago',
-        'Guided tour of Lamu Old Town',
-        'Seafood dinner under the stars'
-      ],
-      price: '$2,150 per person'
-    },
-    {
-      id: 'watamu-marine-adventure',
-      title: 'Watamu Marine Adventure',
-      location: 'Watamu',
-      image: 'https://images.pexels.com/photos/23476888/pexels-photo-23476888/free-photo-of-view-of-people-swimming-in-the-sea.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Explore the Watamu Marine National Park with its spectacular coral gardens, diverse marine life, and gorgeous beaches perfect for relaxation and water sports.',
-      features: [
-        '6 nights beachfront accommodation',
-        'Marine park snorkeling tour',
-        'Dolphin watching excursion',
-        'Turtle conservation experience'
-      ],
-      price: '$1,650 per person'
-    }
-  ];
 
   return (
     <div className=''>

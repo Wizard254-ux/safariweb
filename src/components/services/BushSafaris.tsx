@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom';
 interface SafariExperience {
   id: string;
   title: string;
-  country: string;
-  duration: string;
+  location: string;
   image: string;
   description: string;
-  highlights: string[];
+  features: string[];
   price: string;
 }
 
@@ -15,11 +14,10 @@ export const safariExperiences: SafariExperience[] = [
   {
     id: 'maasai-mara-migration',
     title: 'Maasai Mara Migration Safari',
-    country: 'Kenya',
-    duration: '7 Days',
+    location: 'Kenya',
     image: 'https://images.pexels.com/photos/5521703/pexels-photo-5521703.jpeg?auto=compress&cs=tinysrgb&w=600',
     description: "Witness the incredible wildebeest migration in Kenya's most famous wildlife reserve. This safari focuses on the northern Serengeti ecosystem and Maasai Mara during migration season.",
-    highlights: [
+    features: [
       'Game drives to witness the great migration river crossings',
       'Visit to authentic Maasai village',
       'Luxury tented accommodation',
@@ -30,11 +28,10 @@ export const safariExperiences: SafariExperience[] = [
   {
     id: 'big-five-kruger',
     title: 'Big Five Safari Experience',
-    country: 'South Africa',
-    duration: '5 Days',
+    location: 'South Africa',
     image: 'https://images.pexels.com/photos/4003655/pexels-photo-4003655.jpeg?auto=compress&cs=tinysrgb&w=600',
     description: "Search for the iconic Big Five (lion, leopard, elephant, rhino, and buffalo) in South Africa's premier game reserve. This safari combines luxury accommodation with incredible wildlife viewing.",
-    highlights: [
+    features: [
       'Daily game drives in open safari vehicles',
       'Night drives to spot nocturnal animals',
       'Bush walks with armed rangers',
@@ -45,11 +42,10 @@ export const safariExperiences: SafariExperience[] = [
   {
     id: 'botswana-delta-experience',
     title: 'Okavango Delta Safari',
-    country: 'Botswana',
-    duration: '8 Days',
+    location: 'Botswana',
     image: 'https://images.pexels.com/photos/31030245/pexels-photo-31030245/free-photo-of-close-up-of-two-hippos-partially-submerged-in-water.jpeg?auto=compress&cs=tinysrgb&w=600',
     description: 'Explore the unique ecosystem of the Okavango Delta, where water and land create a paradise for wildlife. Experience traditional mokoro canoe safaris and walking adventures.',
-    highlights: [
+    features: [
       'Mokoro canoe excursions through waterways',
       'Island walking safaris',
       'Game drives in private concessions',
@@ -96,11 +92,9 @@ export const BushSafaris: React.FC = () => {
               <h3 className="text-sm font-bold text-gray-800">{safari.title}</h3>
               <div className="flex flex-col items-end">
                 <span className="bg-yellow-100 text-yellow-800 text-xs px-1.5 py-0.5 rounded mb-1">
-                  {safari.country}
+                  {safari.location}
                 </span>
-                <span className="bg-blue-100 text-blue-800 text-xs px-1.5 py-0.5 rounded">
-                  {safari.duration}
-                </span>
+             
               </div>
             </div>
            

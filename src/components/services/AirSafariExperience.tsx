@@ -11,61 +11,61 @@ interface AirSafariExperience {
   price: string;
 }
 
+export const airSafariExperiences: AirSafariExperience[] = [
+  {
+    id: 'masai-mara-helicopter',
+    title: 'Masai Mara Helicopter Safari',
+    location: 'Masai Mara',
+    image: 'https://media.istockphoto.com/id/985665578/photo/patrolling-kenya-park-ranger-helicopter.jpg?b=1&s=612x612&w=0&k=20&c=_bP9AsF0ISlKtthxM4MpXHGVzrfRw-p2F89GbnI7j6k=',
+    description: 'Witness the spectacular wildlife and landscapes of the Masai Mara from above with our exclusive helicopter safari, offering unparalleled views of the savannah and wildlife.',
+    features: [
+      '3-hour helicopter safari experience',
+      'Champagne bush breakfast',
+      'Landing at scenic viewpoints',
+      'Professional wildlife photographer guide'
+    ],
+    price: '$3,250 per person'
+  },
+  {
+    id: 'northern-kenya-air-expedition',
+    title: 'Northern Kenya Air Expedition',
+    location: 'Samburu, Turkana & Matthews Range',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsaCta3AHJs-ZdMK3RVDdJ_MN-kmmNsIigqg&s',
+    description: 'Explore Kenya\'s remote northern frontiers by private aircraft, accessing areas rarely seen by tourists including Lake Turkana, the Chalbi Desert, and the Matthews Range.',
+    features: [
+      '7 nights in luxury wilderness camps',
+      'Private aircraft transportation',
+      'Cultural encounters with Samburu and Turkana tribes',
+      'Full-board accommodation with premium beverages'
+    ],
+    price: '$5,450 per person'
+  },
+  {
+    id: 'great-rift-balloon',
+    title: 'Great Rift Valley Balloon Safari',
+    location: 'Nakuru & Naivasha',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzko0PJOBAXeY1zPkCRcAZQppgv-9KPOP8cg&s',
+    description: 'Float silently over the lakes and wildlife of the Great Rift Valley at dawn, witnessing flamingos, hippos, and other wildlife from the perfect vantage point.',
+    features: [
+      'Hot air balloon safari at sunrise',
+      'Bush champagne breakfast',
+      'Lake Nakuru National Park game drive',
+      'Overnight at luxury lake lodge'
+    ],
+    price: '$1,950 per person'
+  }
+];
 export const AirSafaris: React.FC = () => {
   // In a real application, you'd use react-router-dom for navigation
   // const navigate = useNavigate();
+  const navigate=useNavigate()
   
   const handleExperienceClick = (id: string) => {
     // In a real application, this would navigate to the detail page
-    const navigate=useNavigate()
-    navigate(`/Details/${id}/bushSafari`);
+    navigate(`/Details/${id}/airSafaris`);
     console.log(`Navigating to detail page for ${id}`);
   };
 
-  const airSafariExperiences: AirSafariExperience[] = [
-    {
-      id: 'masai-mara-helicopter',
-      title: 'Masai Mara Helicopter Safari',
-      location: 'Masai Mara',
-      image: 'https://media.istockphoto.com/id/985665578/photo/patrolling-kenya-park-ranger-helicopter.jpg?b=1&s=612x612&w=0&k=20&c=_bP9AsF0ISlKtthxM4MpXHGVzrfRw-p2F89GbnI7j6k=',
-      description: 'Witness the spectacular wildlife and landscapes of the Masai Mara from above with our exclusive helicopter safari, offering unparalleled views of the savannah and wildlife.',
-      features: [
-        '3-hour helicopter safari experience',
-        'Champagne bush breakfast',
-        'Landing at scenic viewpoints',
-        'Professional wildlife photographer guide'
-      ],
-      price: '$3,250 per person'
-    },
-    {
-      id: 'northern-kenya-air-expedition',
-      title: 'Northern Kenya Air Expedition',
-      location: 'Samburu, Turkana & Matthews Range',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsaCta3AHJs-ZdMK3RVDdJ_MN-kmmNsIigqg&s',
-      description: 'Explore Kenya\'s remote northern frontiers by private aircraft, accessing areas rarely seen by tourists including Lake Turkana, the Chalbi Desert, and the Matthews Range.',
-      features: [
-        '7 nights in luxury wilderness camps',
-        'Private aircraft transportation',
-        'Cultural encounters with Samburu and Turkana tribes',
-        'Full-board accommodation with premium beverages'
-      ],
-      price: '$5,450 per person'
-    },
-    {
-      id: 'great-rift-balloon',
-      title: 'Great Rift Valley Balloon Safari',
-      location: 'Nakuru & Naivasha',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzko0PJOBAXeY1zPkCRcAZQppgv-9KPOP8cg&s',
-      description: 'Float silently over the lakes and wildlife of the Great Rift Valley at dawn, witnessing flamingos, hippos, and other wildlife from the perfect vantage point.',
-      features: [
-        'Hot air balloon safari at sunrise',
-        'Bush champagne breakfast',
-        'Lake Nakuru National Park game drive',
-        'Overnight at luxury lake lodge'
-      ],
-      price: '$1,950 per person'
-    }
-  ];
 
   return (
     <div>

@@ -10,63 +10,61 @@ interface CulturalExperience {
   features: string[];
   price: string;
 }
+export const culturalExperiences: CulturalExperience[] = [
+  {
+    id: 'maasai-cultural-immersion',
+    title: 'Maasai Cultural Immersion',
+    location: 'Maasai Mara & Loita Hills',
+    image: 'https://images.pexels.com/photos/13033076/pexels-photo-13033076.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Experience authentic Maasai culture with a stay in a traditional village. Learn about their customs, participate in daily activities, and gain insight into this iconic community.',
+    features: [
+      '3 nights in a traditional Maasai village',
+      'Guided walks with Maasai warriors',
+      'Traditional dance and storytelling evenings',
+      'Participation in daily cultural activities'
+    ],
+    price: '$1,350 per person'
+  },
+  {
+    id: 'samburu-warrior-experience',
+    title: 'Samburu Warrior Experience',
+    location: 'Samburu County',
+    image: 'https://images.pexels.com/photos/16863352/pexels-photo-16863352/free-photo-of-a-woman-in-traditional-african-clothing.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Immerse yourself in the unique culture of the Samburu people of northern Kenya. Learn about their distinctive traditions, colorful adornments, and nomadic lifestyle.',
+    features: [
+      '4 nights split between luxury camp and community stay',
+      'Camel trekking with Samburu guides',
+      'Traditional ceremony participation',
+      'Visit to local markets and craftspeople'
+    ],
+    price: '$1,750 per person'
+  },
+  {
+    id: 'luo-and-lake-victoria',
+    title: 'Luo Culture & Lake Victoria',
+    location: 'Kisumu & Lake Victoria',
+    image: 'https://images.pexels.com/photos/8579239/pexels-photo-8579239.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Discover the rich traditions of the Luo people around Lake Victoria. Experience fishing communities, traditional music, and the vibrant culture of Kenya\'s western region.',
+    features: [
+      '5 nights in lakeside accommodations',
+      'Visits to traditional fishing villages',
+      'Boat excursion on Lake Victoria',
+      'Traditional Luo music and dance performance'
+    ],
+    price: '$1,550 per person'
+  }
+];
 
 export const CulturalSafaris: React.FC = () => {
   // In a real application, you'd use react-router-dom for navigation
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   
   const handleExperienceClick = (id: string) => {
     // In a real application, this would navigate to the detail page
-    const navigate=useNavigate()
-    navigate(`/Details/${id}/CulturalSafaris`);
+    navigate(`/Details/${id}/culturalSafaris`);
     console.log(`Viewing details for ${id}`);    console.log(`Navigating to detail page for ${id}`);
-    alert(`Viewing details for ${id}. In a real app, this would navigate to a detailed page.`);
   };
 
-  const culturalExperiences: CulturalExperience[] = [
-    {
-      id: 'maasai-cultural-immersion',
-      title: 'Maasai Cultural Immersion',
-      location: 'Maasai Mara & Loita Hills',
-      image: 'https://images.pexels.com/photos/13033076/pexels-photo-13033076.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Experience authentic Maasai culture with a stay in a traditional village. Learn about their customs, participate in daily activities, and gain insight into this iconic community.',
-      features: [
-        '3 nights in a traditional Maasai village',
-        'Guided walks with Maasai warriors',
-        'Traditional dance and storytelling evenings',
-        'Participation in daily cultural activities'
-      ],
-      price: '$1,350 per person'
-    },
-    {
-      id: 'samburu-warrior-experience',
-      title: 'Samburu Warrior Experience',
-      location: 'Samburu County',
-      image: 'https://images.pexels.com/photos/16863352/pexels-photo-16863352/free-photo-of-a-woman-in-traditional-african-clothing.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Immerse yourself in the unique culture of the Samburu people of northern Kenya. Learn about their distinctive traditions, colorful adornments, and nomadic lifestyle.',
-      features: [
-        '4 nights split between luxury camp and community stay',
-        'Camel trekking with Samburu guides',
-        'Traditional ceremony participation',
-        'Visit to local markets and craftspeople'
-      ],
-      price: '$1,750 per person'
-    },
-    {
-      id: 'luo-and-lake-victoria',
-      title: 'Luo Culture & Lake Victoria',
-      location: 'Kisumu & Lake Victoria',
-      image: 'https://images.pexels.com/photos/8579239/pexels-photo-8579239.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Discover the rich traditions of the Luo people around Lake Victoria. Experience fishing communities, traditional music, and the vibrant culture of Kenya\'s western region.',
-      features: [
-        '5 nights in lakeside accommodations',
-        'Visits to traditional fishing villages',
-        'Boat excursion on Lake Victoria',
-        'Traditional Luo music and dance performance'
-      ],
-      price: '$1,550 per person'
-    }
-  ];
 
   return (
     <div>

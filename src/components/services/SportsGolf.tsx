@@ -11,62 +11,60 @@ interface GolfExperience {
   price: string;
 }
 
+export const golfExperiences: GolfExperience[] = [
+  {
+    id: 'kenya-highland-golf',
+    title: 'Kenya Highland Golf Safari',
+    location: 'Nairobi',
+    image: 'https://images.pexels.com/photos/2622266/pexels-photo-2622266.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Combine wildlife viewing with golf on scenic courses in the Kenyan highlands. Play at Windsor, Karen Country Club, and Muthaiga Golf Club.',
+    features: [
+      '7 nights split between Nairobi and Nanyuki',
+      '4 rounds of golf',
+      'Game drives in Ol Pejeta Conservancy',
+      'Full-board accommodation'
+    ],
+    price: '$2,450 per person'
+  },
+  {
+    id: 'mount-kenya-golf',
+    title: 'Mount Kenya Golf Retreat',
+    location: 'Mount Kenya',
+    image: 'https://images.pexels.com/photos/29442442/pexels-photo-29442442/free-photo-of-scenic-autumn-view-at-ontario-golf-course.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Experience golfing with stunning views of Mount Kenya at the Fairmont Mount Kenya Safari Club, one of Africa\'s most prestigious and historic golf courses.',
+    features: [
+      '5 nights luxury accommodation',
+      '3 rounds of golf',
+      'Guided nature walks',
+      'Spa treatments'
+    ],
+    price: '$1,950 per person'
+  },
+  {
+    id: 'great-rift-valley-golf',
+    title: 'Great Rift Valley Golf Tour',
+    location: 'Naivasha',
+    image: 'https://images.pexels.com/photos/9986979/pexels-photo-9986979.jpeg?auto=compress&cs=tinysrgb&w=600',
+    description: 'Play golf with panoramic views of Lake Naivasha and the Great Rift Valley. Includes rounds at the Great Rift Valley Lodge and Golf Resort and Naivasha courses.',
+    features: [
+      '6 nights accommodation',
+      '4 rounds of golf',
+      'Lake Naivasha boat safari',
+      'Half-board accommodation'
+    ],
+    price: '$1,750 per person'
+  }
+];
 export const SportsGolf: React.FC = () => {
   // In a real application, you'd use react-router-dom for navigation
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   
   const handleExperienceClick = (id: string) => {
     // In a real application, this would navigate to the detail page
-    const navigate=useNavigate()
-    navigate(`/Details/${id}/SportsGolf`);
+    navigate(`/Details/${id}/sportsGolf`);
     console.log(`Navigating to detail page for ${id}`);
-    alert(`Viewing details for ${id}. In a real app, this would navigate to a detailed page.`);
   };
 
-  const golfExperiences: GolfExperience[] = [
-    {
-      id: 'kenya-highland-golf',
-      title: 'Kenya Highland Golf Safari',
-      location: 'Nairobi',
-      image: 'https://images.pexels.com/photos/2622266/pexels-photo-2622266.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Combine wildlife viewing with golf on scenic courses in the Kenyan highlands. Play at Windsor, Karen Country Club, and Muthaiga Golf Club.',
-      features: [
-        '7 nights split between Nairobi and Nanyuki',
-        '4 rounds of golf',
-        'Game drives in Ol Pejeta Conservancy',
-        'Full-board accommodation'
-      ],
-      price: '$2,450 per person'
-    },
-    {
-      id: 'mount-kenya-golf',
-      title: 'Mount Kenya Golf Retreat',
-      location: 'Mount Kenya',
-      image: 'https://images.pexels.com/photos/29442442/pexels-photo-29442442/free-photo-of-scenic-autumn-view-at-ontario-golf-course.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Experience golfing with stunning views of Mount Kenya at the Fairmont Mount Kenya Safari Club, one of Africa\'s most prestigious and historic golf courses.',
-      features: [
-        '5 nights luxury accommodation',
-        '3 rounds of golf',
-        'Guided nature walks',
-        'Spa treatments'
-      ],
-      price: '$1,950 per person'
-    },
-    {
-      id: 'great-rift-valley-golf',
-      title: 'Great Rift Valley Golf Tour',
-      location: 'Naivasha',
-      image: 'https://images.pexels.com/photos/9986979/pexels-photo-9986979.jpeg?auto=compress&cs=tinysrgb&w=600',
-      description: 'Play golf with panoramic views of Lake Naivasha and the Great Rift Valley. Includes rounds at the Great Rift Valley Lodge and Golf Resort and Naivasha courses.',
-      features: [
-        '6 nights accommodation',
-        '4 rounds of golf',
-        'Lake Naivasha boat safari',
-        'Half-board accommodation'
-      ],
-      price: '$1,750 per person'
-    }
-  ];
 
   return (
     <div>
