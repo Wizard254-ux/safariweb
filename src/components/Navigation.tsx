@@ -4,8 +4,10 @@ import { Menu, X } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
   const navigate = useNavigate();
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-  
+  const [isSidebarOpen, setSidebarOpen] = useState(() => {
+    return localStorage.getItem('sidebarOpen') === 'true';
+  });
+    
   // Close sidebar when screen size changes to desktop
   useEffect(() => {
     const handleResize = () => {
@@ -19,12 +21,15 @@ export const Navigation: React.FC = () => {
   }, []);
 
   const handleTabChange = (tabName: string) => {
+    localStorage.setItem('activePage', tabName);
     navigate(`/${tabName}`);
-    setSidebarOpen(false); // Close sidebar after navigation
+    // Don't close sidebar on navigation - let it persist
   };
 
   const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
+    const newSidebarState = !isSidebarOpen;
+    setSidebarOpen(newSidebarState);
+    localStorage.setItem('sidebarOpen', newSidebarState.toString());
   };
 
   return (
@@ -39,10 +44,49 @@ export const Navigation: React.FC = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <button onClick={() => handleTabChange("")} className="font-medium text-gray-700 hover:text-green-600">Home</button>
-            <button onClick={() => handleTabChange("testimonials")} className="font-medium text-gray-700 hover:text-green-600">Testimonials</button>
-            <button onClick={() => handleTabChange("bloga&vlogs")} className="font-medium text-gray-700 hover:text-green-600">Blogs & Vlogs</button>
-            <button onClick={() => handleTabChange("contact")} className="font-medium text-gray-700 hover:text-green-600">Contact</button>
+            <button 
+              onClick={() => handleTabChange("")} 
+              className={`p-2 rounded-sm font-medium ${
+                localStorage.getItem('activePage') === "" 
+                  ? "bg-green-100 text-green-600" 
+                  : "text-gray-700 hover:text-green-600"
+              }`}
+            >
+              Home
+            </button>
+
+            <button 
+              onClick={() => handleTabChange("bloga&vlogs")} 
+              className={`p-2 rounded-sm font-medium ${
+                localStorage.getItem('activePage') === "bloga&vlogs" 
+                  ? "bg-green-100 text-green-600" 
+                  : "text-gray-700 hover:text-green-600"
+              }`}
+            >
+              Blogs & Vlogs
+            </button>
+
+            <button 
+              onClick={() => handleTabChange("contact")} 
+              className={`p-2 rounded-sm font-medium ${
+                localStorage.getItem('activePage') === "contact" 
+                  ? "bg-green-100 text-green-600" 
+                  : "text-gray-700 hover:text-green-600"
+              }`}
+            >
+              Contact
+            </button>
+
+            <button 
+              onClick={() => handleTabChange("testimonials")} 
+              className={`p-2 rounded-sm font-medium ${
+                localStorage.getItem('activePage') === "testimonials" 
+                  ? "bg-green-100 text-green-600" 
+                  : "text-gray-700 hover:text-green-600"
+              }`}
+            >
+              Testimonials
+            </button>
           </div>
 
           {/* Mobile Sidebar */}
@@ -58,10 +102,49 @@ export const Navigation: React.FC = () => {
               </div>
               
               <div className="flex flex-col space-y-4">
-                <button onClick={() => handleTabChange("")} className="font-medium text-white hover:text-green-600 text-left">Home</button>
-                <button onClick={() => handleTabChange("testimonials")} className="font-medium text-white hover:text-green-600 text-left">Testimonials</button>
-                <button onClick={() => handleTabChange("bloga&vlogs")} className="font-medium text-white hover:text-green-600 text-left">Blogs & Vlogs</button>
-                <button onClick={() => handleTabChange("contact")} className="font-medium text-white hover:text-green-600 text-left">Contact</button>
+                <button 
+                  onClick={() => handleTabChange("")} 
+                  className={`p-2 rounded-sm font-medium text-left ${
+                    localStorage.getItem('activePage') === "" 
+                      ? "bg-green-700 text-white" 
+                      : "text-white hover:text-green-600"
+                  }`}
+                >
+                  Home
+                </button>
+
+                <button 
+                  onClick={() => handleTabChange("testimonials")} 
+                  className={`p-2 rounded-sm font-medium text-left ${
+                    localStorage.getItem('activePage') === "testimonials" 
+                      ? "bg-green-700 text-white" 
+                      : "text-white hover:text-green-600"
+                  }`}
+                >
+                  Testimonials
+                </button>
+
+                <button 
+                  onClick={() => handleTabChange("bloga&vlogs")} 
+                  className={`p-2 rounded-sm font-medium text-left ${
+                    localStorage.getItem('activePage') === "bloga&vlogs" 
+                      ? "bg-green-700 text-white" 
+                      : "text-white hover:text-green-600"
+                  }`}
+                >
+                  Blogs & Vlogs
+                </button>
+
+                <button 
+                  onClick={() => handleTabChange("contact")} 
+                  className={`p-2 rounded-sm font-medium text-left ${
+                    localStorage.getItem('activePage') === "contact" 
+                      ? "bg-green-700 text-white" 
+                      : "text-white hover:text-green-600"
+                  }`}
+                >
+                  Contact
+                </button>
               </div>
             </div>
             

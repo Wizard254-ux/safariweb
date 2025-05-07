@@ -408,7 +408,7 @@ export const SafariPackagesComponent = () => {
         <div className="flex justify-between items-start mb-1">
           <h3 className="text-sm font-bold text-gray-800">{safari.title}</h3>
           <div className="flex flex-col items-end">
-            <span className="bg-green-100 text-green-800 text-[10px] font-medium px-2 py-0.5 rounded">
+            <span className="bg-yellow-100 text-yellow-800 text-[10px] font-medium px-2 py-0.5 rounded">
               {safari.location}
             </span>
           </div>
@@ -419,7 +419,7 @@ export const SafariPackagesComponent = () => {
         <div className="mt-2 flex justify-between items-center">
           <span className="text-gray-800 text-sm font-semibold">{safari.price}</span>
           <motion.button 
-            className="bg-green-600 text-white text-xs px-2 py-1 rounded hover:bg-green-700 transition"
+            className="bg-yellow-600 text-white text-xs px-2 py-1 rounded hover:bg-yellow-700 transition"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
