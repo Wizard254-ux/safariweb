@@ -42,7 +42,7 @@ export const CulturalSafaris: React.FC = () => {
       id: 'samburu-warrior-experience',
       title: 'Samburu Warrior Experience',
       location: 'Samburu County',
-      image: '/api/placeholder/400/250',
+      image: 'https://images.pexels.com/photos/16863352/pexels-photo-16863352/free-photo-of-a-woman-in-traditional-african-clothing.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: 'Immerse yourself in the unique culture of the Samburu people of northern Kenya. Learn about their distinctive traditions, colorful adornments, and nomadic lifestyle.',
       features: [
         '4 nights split between luxury camp and community stay',
@@ -56,7 +56,7 @@ export const CulturalSafaris: React.FC = () => {
       id: 'luo-and-lake-victoria',
       title: 'Luo Culture & Lake Victoria',
       location: 'Kisumu & Lake Victoria',
-      image: '/api/placeholder/400/250',
+      image: 'https://images.pexels.com/photos/8579239/pexels-photo-8579239.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: 'Discover the rich traditions of the Luo people around Lake Victoria. Experience fishing communities, traditional music, and the vibrant culture of Kenya\'s western region.',
       features: [
         '5 nights in lakeside accommodations',
@@ -83,7 +83,7 @@ export const CulturalSafaris: React.FC = () => {
   {culturalExperiences.map((experience) => (
     <div
       key={experience.id}
-      className="bg-white w-full rounded shadow overflow-hidden cursor-pointer transform transition hover:scale-105 m-2 max-w-[20rem]"
+      className="bg-white w-full min-h-[18rem] rounded shadow overflow-hidden cursor-pointer transform transition hover:scale-105 m-2 max-w-[20rem]"
       onClick={() => handleExperienceClick(experience.id)}
     >
       <div className="h-28 overflow-hidden">

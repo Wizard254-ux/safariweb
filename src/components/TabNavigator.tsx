@@ -15,7 +15,6 @@ export const TabNavigator: React.FC<TabNavigatorProps> = ({ activeTab, onTabChan
     { id: 'cultural-safaris', label: 'Cultural Safaris' },
     { id: 'sports-golf', label: 'Sports & Golf' },
     { id: 'Travel-Packages', label: 'Travel packages' },
-    { id: 'air-safaris', label: 'AirSafaris' },
   ];
   
   return (

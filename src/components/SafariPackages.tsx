@@ -374,63 +374,63 @@ export const SafariPackagesComponent = () => {
         
         {/* Safari packages grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+  className="flex flex-wrap justify-center items-center gap-4 w-full max-w-screen-xl mx-auto p-4"
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.1 }}
+>
+  {safariPackages.map((safari, _index) => (
+    <motion.div 
+      key={safari.id}
+      className="bg-white max-w-[20rem] w-full rounded-lg overflow-hidden cursor-pointer shadow-lg m-2"
+      variants={itemVariants}
+      whileHover="hover"
+      onClick={() => handlePackageClick(safari.id)}
+    >
+      <div className="h-36 overflow-hidden relative">
+        <img 
+          src={safari.image} 
+          alt={safari.title} 
+          className="w-full h-full object-cover"
+        />
+        <motion.div 
+          className="absolute top-2 right-2 bg-yellow-500 text-white font-bold py-0.5 px-2 rounded-full text-xs"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.5, type: "spring", stiffness: 300 }}
         >
-          {safariPackages.map((safari, _index) => (
-            <motion.div 
-              key={safari.id}
-              className="bg-white rounded-lg overflow-hidden cursor-pointer shadow-lg"
-              variants={itemVariants}
-              whileHover="hover"
-              onClick={() => handlePackageClick(safari.id)}
-            >
-              <div className="h-52 overflow-hidden relative">
-                <img 
-                  src={safari.image} 
-                  alt={safari.title} 
-                  className="w-full h-full object-cover"
-                />
-                <motion.div 
-                  className="absolute top-3 right-3 bg-yellow-500 text-white font-bold py-1 px-3 rounded-full text-sm"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5, type: "spring", stiffness: 300 }}
-                >
-                  {safari.duration}
-                </motion.div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-gray-800">{safari.title}</h3>
-                  <div className="flex flex-col items-end">
-                    <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded mb-1">
-                      {safari.location}
-                    </span>
-                  </div>
-                </div>
-                
-                <p className="text-gray-600 mb-4 line-clamp-3">{safari.description}</p>
-                
-                <div className="mt-4 flex justify-between items-center">
-                  <span className="text-gray-800 font-semibold">{safari.price}</span>
-                  <motion.button 
-                    className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    View Details
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {safari.duration}
         </motion.div>
+      </div>
+      
+      <div className="p-3">
+        <div className="flex justify-between items-start mb-1">
+          <h3 className="text-sm font-bold text-gray-800">{safari.title}</h3>
+          <div className="flex flex-col items-end">
+            <span className="bg-green-100 text-green-800 text-[10px] font-medium px-2 py-0.5 rounded">
+              {safari.location}
+            </span>
+          </div>
+        </div>
         
+        <p className="text-gray-600 text-xs mb-2 line-clamp-3">{safari.description}</p>
+        
+        <div className="mt-2 flex justify-between items-center">
+          <span className="text-gray-800 text-sm font-semibold">{safari.price}</span>
+          <motion.button 
+            className="bg-green-600 text-white text-xs px-2 py-1 rounded hover:bg-green-700 transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            View
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+
         {/* Safari planning tips section */}
         <AnimateOnScroll className="mt-12 bg-gray-100 rounded-lg p-6" delay={0.2}>
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Safari Planning Tips</h3>

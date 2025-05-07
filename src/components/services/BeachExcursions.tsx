@@ -85,7 +85,7 @@ export const BeachExcursions: React.FC = () => {
       {beachExperiences.map((experience) => (
         <div 
           key={experience.id}
-          className="bg-white w-full rounded shadow overflow-hidden cursor-pointer transform transition hover:scale-105 m-2 max-w-[20rem]"
+          className="bg-white w-full rounded  min-h-[18rem] shadow overflow-hidden cursor-pointer transform transition hover:scale-105 m-2 max-w-[20rem]"
           onClick={() => handleExperienceClick(experience.id)}
         >
           <div className="h-28 overflow-hidden">
