@@ -74,7 +74,7 @@ export const SportsGolf: React.FC = () => {
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Kenya Golf Experiences</h2>
         <p className="text-lg text-gray-600">
           Combine your love for adventure and sport with our carefully curated golf packages in Kenya's most 
-          scenic locations. From highland courses to lakeside greens with spectacular views, experience 
+          scenic locations. From highland courses to lakeside yellows with spectacular views, experience 
           world-class golfing while enjoying the best of Kenyan hospitality and wildlife.
         </p>
       </div>
@@ -97,7 +97,7 @@ export const SportsGolf: React.FC = () => {
             <div className="p-6">
               <div className="flex justify-between items-start mb-2">
                 <h3 className="text-xl font-bold text-gray-800">{experience.title}</h3>
-                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">
                   {experience.location}
                 </span>
               </div>
@@ -109,7 +109,7 @@ export const SportsGolf: React.FC = () => {
                 <ul className="text-gray-600">
                   {experience.features.map((feature, index) => (
                     <li key={index} className="flex items-start mb-1">
-                      <svg className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 text-yellow-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       {feature}
@@ -120,7 +120,7 @@ export const SportsGolf: React.FC = () => {
               
               <div className="mt-4 flex justify-between items-center">
                 <span className="text-gray-800 text-lg font-semibold">{experience.price}</span>
-                <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">
+                <button className="bg-yellow-600 text-white px-4 py-2 rounded-md hover:bg-yellow-700 transition">
                   View Details
                 </button>
               </div>
@@ -135,7 +135,7 @@ export const SportsGolf: React.FC = () => {
           Looking for something specific? We can create a customized golf itinerary tailored to your preferences,
           skill level, and desired destinations in Kenya. Contact our team to start planning your perfect golf holiday.
         </p>
-        <button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition">
+        <button className="bg-yellow-600 text-white px-6 py-2 rounded-md hover:bg-yellow-700 transition">
           Inquire Now
         </button>
       </div>

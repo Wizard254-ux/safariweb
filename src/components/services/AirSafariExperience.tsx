@@ -20,7 +20,6 @@ export const AirSafaris: React.FC = () => {
     const navigate=useNavigate()
     navigate(`/Details/${id}/bushSafari`);
     console.log(`Navigating to detail page for ${id}`);
-    alert(`Viewing details for ${id}. In a real app, this would navigate to a detailed page.`);
   };
 
   const airSafariExperiences: AirSafariExperience[] = [
@@ -104,7 +103,7 @@ export const AirSafaris: React.FC = () => {
               
               <p className="text-gray-600 mb-4">{experience.description}</p>
               
-              <div>
+              {/* <div>
                 <h4 className="font-semibold text-gray-800 mb-2">Package Includes:</h4>
                 <ul className="text-gray-600">
                   {experience.features.map((feature, index) => (
@@ -117,7 +116,7 @@ export const AirSafaris: React.FC = () => {
                   ))}
                 </ul>
               </div>
-              
+               */}
               <div className="mt-4 flex justify-between items-center">
                 <span className="text-gray-800 text-lg font-semibold">{experience.price}</span>
                 <button className="bg-yellow-600 text-white px-4 py-2 rounded-md hover:bg-yellow-700 transition">

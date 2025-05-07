@@ -76,60 +76,46 @@ export const BushSafaris: React.FC = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {safariExperiences.map((safari) => (
-          <div 
-            key={safari.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform transition hover:scale-105"
-            onClick={() => handleSafariClick(safari.id)}
-          >
-            <div className="h-48 overflow-hidden">
-              <img 
-                src={safari.image} 
-                alt={safari.title} 
-                className="w-full h-full object-cover"
-              />
+      <div className="flex flex-wrap justify-center items-center w-full max-w-screen-xl mx-auto p-4">
+      {safariExperiences.map((safari) => (
+        <div
+          key={safari.id}
+          className="bg-white w-full rounded shadow overflow-hidden cursor-pointer transform transition hover:scale-105 m-2 max-w-[20rem]"
+          onClick={() => handleSafariClick(safari.id)}
+        >
+          <div className="h-28 overflow-hidden">
+            <img
+              src={safari.image}
+              alt={safari.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+         
+          <div className="p-3">
+            <div className="flex justify-between items-start mb-1">
+              <h3 className="text-sm font-bold text-gray-800">{safari.title}</h3>
+              <div className="flex flex-col items-end">
+                <span className="bg-yellow-100 text-yellow-800 text-xs px-1.5 py-0.5 rounded mb-1">
+                  {safari.country}
+                </span>
+                <span className="bg-blue-100 text-blue-800 text-xs px-1.5 py-0.5 rounded">
+                  {safari.duration}
+                </span>
+              </div>
             </div>
-            
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-bold text-gray-800">{safari.title}</h3>
-                <div className="flex flex-col items-end">
-                  <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded mb-1">
-                    {safari.country}
-                  </span>
-                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                    {safari.duration}
-                  </span>
-                </div>
-              </div>
-              
-              <p className="text-gray-600 mb-4">{safari.description}</p>
-              
-              {/* <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Highlights:</h4>
-                <ul className="text-gray-600">
-                  {safari.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start mb-1">
-                      <svg className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-              </div> */}
-              
-              <div className="mt-4 flex justify-between items-center">
-                <span className="text-gray-800 text-[14px] font-semibold">{safari.price}</span>
-                <button className="bg-green-600 text-white text-[14px] px-3 py-2 rounded-md hover:bg-green-700 transition">
-                  View Details
-                </button>
-              </div>
+           
+            <p className="text-xs text-gray-600 mb-2">{safari.description}</p>
+           
+            <div className="flex justify-between items-center">
+              <span className="text-gray-800 text-sm font-semibold">{safari.price}</span>
+              <button className="bg-yellow-600 text-white text-xs px-2 py-1 rounded hover:bg-yellow-700 transition">
+                Details
+              </button>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
+    </div>
       
       <div className="mt-12 bg-gray-100 rounded-lg p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-4">Safari Planning Guide</h3>

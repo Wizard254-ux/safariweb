@@ -22,10 +22,11 @@ const HomePage: React.FC = () => {
   const serviceComponents = {
     'bush-safaris': <BushSafaris />,
     'sports-golf': <SportsGolf />,
-    'BeachExcursions': <BeachExcursions />,
+    'beach-excursions': <BeachExcursions />,
     'cultural-safaris': <CulturalSafaris />,
-    'AirSafaris': <AirSafaris />,
+    'air-safaris': <AirSafaris />,
     'Travel-Packages': <SafariPackagesComponent />,
+    '': <SafariPackagesComponent />,
   };
 
   const handleTabChange = (tabId: string) => {

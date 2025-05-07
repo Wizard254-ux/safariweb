@@ -28,7 +28,7 @@ export const CulturalSafaris: React.FC = () => {
       id: 'maasai-cultural-immersion',
       title: 'Maasai Cultural Immersion',
       location: 'Maasai Mara & Loita Hills',
-      image: '/api/placeholder/400/250',
+      image: 'https://images.pexels.com/photos/13033076/pexels-photo-13033076.jpeg?auto=compress&cs=tinysrgb&w=600',
       description: 'Experience authentic Maasai culture with a stay in a traditional village. Learn about their customs, participate in daily activities, and gain insight into this iconic community.',
       features: [
         '3 nights in a traditional Maasai village',
@@ -79,64 +79,51 @@ export const CulturalSafaris: React.FC = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {culturalExperiences.map((experience) => (
-          <div 
-            key={experience.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform transition hover:scale-105"
-            onClick={() => handleExperienceClick(experience.id)}
-          >
-            <div className="h-48 overflow-hidden">
-              <img 
-                src={experience.image} 
-                alt={experience.title} 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-bold text-gray-800">{experience.title}</h3>
-                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
-                  {experience.location}
-                </span>
-              </div>
-              
-              <p className="text-gray-600 mb-4">{experience.description}</p>
-              
-              {/* <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Package Includes:</h4>
-                <ul className="text-gray-600">
-                  {experience.features.map((feature, index) => (
-                    <li key={index} className="flex items-start mb-1">
-                      <svg className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div> */}
-              
-              <div className="mt-4 flex justify-between items-center">
-                <span className="text-gray-800 text-lg font-semibold">{experience.price}</span>
-                <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="flex flex-wrap justify-center items-center w-full max-w-screen-xl mx-auto p-4">
+  {culturalExperiences.map((experience) => (
+    <div
+      key={experience.id}
+      className="bg-white w-full rounded shadow overflow-hidden cursor-pointer transform transition hover:scale-105 m-2 max-w-[20rem]"
+      onClick={() => handleExperienceClick(experience.id)}
+    >
+      <div className="h-28 overflow-hidden">
+        <img
+          src={experience.image}
+          alt={experience.title}
+          className="w-full h-full object-cover"
+        />
       </div>
+
+      <div className="p-3">
+        <div className="flex justify-between items-start mb-1">
+          <h3 className="text-sm font-bold text-gray-800">{experience.title}</h3>
+          <span className="bg-yellow-100 text-yellow-800 text-xs px-1.5 py-0.5 rounded">
+            {experience.location}
+          </span>
+        </div>
+
+        <p className="text-xs text-gray-600 mb-2">{experience.description}</p>
+
+        <div className="flex justify-between items-center">
+          <span className="text-gray-800 text-sm font-semibold">{experience.price}</span>
+          <button className="bg-yellow-600 text-white text-xs px-2 py-1 rounded hover:bg-yellow-700 transition">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
       
       <div className="mt-12 bg-gray-100 rounded-lg p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-4">Custom Cultural Experiences</h3>
         <p className="text-gray-600 mb-4">
           Interested in exploring a specific cultural aspect of Kenya? We can arrange specialized cultural
           experiences focused on music, art, cuisine, or specific ethnic communities. Our team can create
-          a personalized cultural journey tailogreen to your interests.
+          a personalized cultural journey tailoyellow to your interests.
         </p>
-        <button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition">
+        <button className="bg-yellow-600 text-white px-6 py-2 rounded-md hover:bg-yellow-700 transition">
           Inquire Now
         </button>
       </div>
