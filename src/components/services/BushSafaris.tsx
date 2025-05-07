@@ -63,7 +63,6 @@ export const BushSafaris: React.FC = () => {
   const handleSafariClick = (id: string) => {
     navigate(`/Details/${id}/bushSafari`);
     console.log(`Viewing details for ${id}`);
-    alert(`Viewing details for ${id}. In a real app, this would navigate to a detailed page.`);
   };
 
 
