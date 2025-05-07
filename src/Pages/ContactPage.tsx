@@ -126,18 +126,18 @@ const SuccessMessage: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 };
 
 // Social Media Icon Component
-const SocialIcon: React.FC<{ icon: string; url: string }> = ({ icon, url }) => {
-  return (
-    <a 
-      href={url} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="text-gray-600 hover:text-green-600 transition duration-300"
-    >
-      <i className={`fab fa-${icon} text-2xl`}></i>
-    </a>
-  );
-};
+// const SocialIcon: React.FC<{ icon: string; url: string }> = ({ icon, url }) => {
+//   return (
+//     <a 
+//       href={url} 
+//       target="_blank" 
+//       rel="noopener noreferrer"
+//       className="text-gray-600 hover:text-green-600 transition duration-300"
+//     >
+//       <i className={`fab fa-${icon} text-2xl`}></i>
+//     </a>
+//   );
+// };
 
 // Map Placeholder Component
 const MapPlaceholder: React.FC<{ location: OfficeLocation }> = ({ location }) => {

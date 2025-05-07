@@ -380,7 +380,7 @@ export const SafariPackagesComponent = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {safariPackages.map((safari, index) => (
+          {safariPackages.map((safari, _index) => (
             <motion.div 
               key={safari.id}
               className="bg-white rounded-lg overflow-hidden cursor-pointer shadow-lg"

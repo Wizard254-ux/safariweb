@@ -27,7 +27,7 @@ interface SafariPackage {
 }
 
 // Component to handle scroll into view animations
-const AnimateOnScroll = ({ children, className }) => {
+const AnimateOnScroll = ({ children, className }:{children:any,className:string}) => {
   const controls = useAnimation();
   const ref = React.useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
