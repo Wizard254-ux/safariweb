@@ -65,6 +65,23 @@ const PostDetailPage: React.FC = () => {
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
+  // Convert YouTube URL to embed format
+  const getYouTubeEmbedUrl = (url: string) => {
+    if (!url) return '';
+    
+    // Extract video ID from various YouTube URL formats
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    
+    if (match && match[2].length === 11) {
+      // Return the embed URL with the extracted video ID
+      return `https://www.youtube.com/embed/${match[2]}`;
+    }
+    
+    // If no match found or not a valid YouTube URL, return the original URL
+    return url;
+  };
+
   // Handle back button click
   const handleBack = () => {
     navigate(-1);
@@ -160,7 +177,7 @@ const PostDetailPage: React.FC = () => {
           {post.type === 'vlog' && post.videoUrl ? (
             <div className="aspect-w-16 aspect-h-9 relative pt-[56.25%]">
               <iframe 
-                src={post.videoUrl} 
+                src={getYouTubeEmbedUrl(post.videoUrl)} 
                 title={post.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen
