@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import Footer from '../components/Footer';
+import {posts} from '../components/BlogsInterface'; // Assuming posts data is in a separate file
+import { Link } from 'react-router-dom';
 
 // Interface for blog and vlog posts
 interface Post {
@@ -19,90 +21,6 @@ interface Post {
   categories: string[];
 }
 
-// Sample blog and vlog data
-const posts: Post[] = [
-  {
-    id: 'post-1',
-    title: 'Witnessing the Great Migration in Maasai Mara',
-    excerpt: 'Experience the breathtaking sight of wildebeest crossing the Mara River during our recent safari expedition.',
-    content: 'The annual Great Migration is one of nature\'s most spectacular events...',
-    author: 'James Kimani',
-    date: 'April 15, 2025',
-    location: 'Maasai Mara, Kenya',
-    type: 'blog',
-    thumbnail: '/images/blogs/maasai-mara-migration.jpg',
-    featured: true,
-    categories: ['Wildlife', 'Maasai Mara', 'Migration']
-  },
-  {
-    id: 'post-2',
-    title: 'Big Cat Encounter: Lions of Amboseli',
-    excerpt: 'Join us as we track a pride of lions across the stunning landscapes of Amboseli National Park.',
-    content: 'As the morning sun cast golden light across the savannah...',
-    author: 'Sarah Wanjiku',
-    date: 'March 28, 2025',
-    location: 'Amboseli, Kenya',
-    type: 'vlog',
-    thumbnail: '/images/vlogs/amboseli-lions-thumbnail.jpg',
-    videoUrl: '/videos/amboseli-lions-encounter.mp4',
-    featured: true,
-    categories: ['Big Cats', 'Amboseli', 'Wildlife']
-  },
-  {
-    id: 'post-3',
-    title: 'Luxury Safari Accommodation: Top 5 Eco-Lodges in Kenya',
-    excerpt: 'Discover our selection of the most sustainable and luxurious safari accommodations in Kenya.',
-    content: 'Kenya offers some of the world\'s most impressive eco-friendly luxury accommodations...',
-    author: 'Daniel Muthui',
-    date: 'March 10, 2025',
-    location: 'Various, Kenya',
-    type: 'blog',
-    thumbnail: '/images/blogs/eco-lodges-kenya.jpg',
-    featured: false,
-    categories: ['Accommodation', 'Luxury', 'Eco-Tourism']
-  },
-  {
-    id: 'post-4',
-    title: 'Samburu Cultural Experience: Beyond Wildlife',
-    excerpt: 'Immerse yourself in the rich cultural heritage of the Samburu people alongside incredible wildlife sightings.',
-    content: 'While Kenya\'s wildlife is world-renowned, the cultural experiences are equally enriching...',
-    author: 'Lisa Akinyi',
-    date: 'February 20, 2025',
-    location: 'Samburu, Kenya',
-    type: 'vlog',
-    thumbnail: '/images/vlogs/samburu-culture-thumbnail.jpg',
-    videoUrl: '/videos/samburu-cultural-safari.mp4',
-    featured: false,
-    categories: ['Culture', 'Samburu', 'Local Experience']
-  },
-  {
-    id: 'post-5',
-    title: 'Photography Tips for Your Kenyan Safari',
-    excerpt: 'Master wildlife photography with these essential tips from our resident photographer.',
-    content: 'Capturing the perfect wildlife shot requires patience, skill, and knowledge...',
-    author: 'Michael Omondi',
-    date: 'April 5, 2025',
-    location: 'Kenya',
-    type: 'blog',
-    thumbnail: '/images/blogs/safari-photography-tips.jpg',
-    featured: true,
-    categories: ['Photography', 'Tips', 'Safari Skills']
-  },
-  {
-    id: 'post-6',
-    title: 'Elephant Conservation Efforts in Tsavo',
-    excerpt: 'Learn about the vital conservation work being done to protect Kenya\'s elephant populations.',
-    content: 'Kenya\'s elephant populations face ongoing challenges from poaching and habitat loss...',
-    author: 'Grace Mwangi',
-    date: 'March 22, 2025',
-    location: 'Tsavo, Kenya',
-    type: 'vlog',
-    thumbnail: '/images/vlogs/elephant-conservation-thumbnail.jpg',
-    videoUrl: '/videos/tsavo-elephant-conservation.mp4',
-    featured: true,
-    categories: ['Conservation', 'Elephants', 'Tsavo']
-  }
-];
 
 // Filter type for content filtering
 type FilterOption = 'all' | 'blogs' | 'vlogs' | 'featured';
@@ -157,14 +75,18 @@ const PostCard: React.FC<{ post: Post }> = ({ post }) => {
           </div>
         )}
         <div className="mt-6">
-          <button className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition duration-300">
+          <Link 
+            to={`/posts/${post.id}`} 
+            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition duration-300 inline-block"
+          >
             {post.type === 'blog' ? 'Read More' : 'Watch Video'}
-          </button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
+
 
 // Featured Post Component
 const FeaturedPost: React.FC<{ post: Post }> = ({ post }) => {
@@ -215,15 +137,17 @@ const FeaturedPost: React.FC<{ post: Post }> = ({ post }) => {
               </span>
             ))}
           </div>
-          <button className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300">
+          <Link 
+            to={`/posts/${post.id}`}
+            className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300 inline-block"
+          >
             {post.type === 'blog' ? 'Read Full Article' : 'Watch Full Video'}
-          </button>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
-
 const VlogAndBlogsPage: React.FC = () => {
   const [filter, setFilter] = useState<FilterOption>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');

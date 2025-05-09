@@ -8,6 +8,7 @@ import TestimonialsPage from './Pages/Testimonials'; // Example for future page
 import VlogAndBlogsPage from './Pages/Blogs&Vlogs'; // Example for future page
 import ContactUsPage from './Pages/ContactPage'; // Example for future page
 import { SafariDetailsComponent } from './Pages/PackagesDetails';
+import PostDetailPage from './Pages/PostDetailsPage';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,8 @@ const App: React.FC = () => {
         <Route path="/bloga&vlogs" element={<VlogAndBlogsPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/details/:id/:category" element={<DetailsPage />} />
+        <Route path="/posts/:postId" element={<PostDetailPage />} />
+
         <Route path="pkgdetails/:id/safariPackage" element={<SafariDetailsComponent />} />
 
       </Routes>

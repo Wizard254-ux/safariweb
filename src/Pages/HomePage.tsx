@@ -13,6 +13,8 @@ import { AirSafaris } from '../components/services/AirSafariExperience';
 import { BeachExcursions } from '../components/services/BeachExcursions';
 import { CulturalSafaris } from '../components/services/CulturalSafaris';
 import Footer from '../components/Footer';
+import AboutUs from '../components/AboutUs';
+
 import { SafariPackagesComponent } from '../components/SafariPackages';
 
 const HomePage: React.FC = () => {
@@ -66,6 +68,8 @@ const HomePage: React.FC = () => {
           </AnimatePresence>
         </div>
       </div>
+      <AboutUs />
+
       <Footer />
     </div>
   );

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import Footer from '../components/Footer';
+// Note: You'll need to install these packages: npm install leaflet @types/leaflet
+// Import types only - we'll import the actual library dynamically
+import type { Map as LeafletMap } from 'leaflet';
 
 // Interface for office locations
 interface OfficeLocation {
@@ -29,8 +32,8 @@ const officeLocations: OfficeLocation[] = [
     id: 'nairobi',
     name: 'Nairobi Headquarters',
     address: '123 Kenyatta Avenue, Nairobi, Kenya',
-    phone: '+254 20 123 4567',
-    email: 'info@kenyasafaris.com',
+    phone: '‪+254 745470217‬',
+    email: 'Info@lynnietravis-adventuers.com',
     hours: 'Monday - Friday: 8:00 AM - 5:00 PM',
     mapCoordinates: {
       lat: -1.286389,
@@ -41,9 +44,9 @@ const officeLocations: OfficeLocation[] = [
     id: 'mombasa',
     name: 'Mombasa Office',
     address: '45 Beach Road, Mombasa, Kenya',
-    phone: '+254 41 987 6543',
-    email: 'mombasa@kenyasafaris.com',
-    hours: 'Monday - Friday: 9:00 AM - 5:00 PM',
+    phone: '+254 759491995‬',
+    email: 'Ceo@lynnietravisadventures.com',
+    hours: 'Monday - Friday: 8:00 AM - 5:00 PM',
     mapCoordinates: {
       lat: -4.043740,
       lng: 39.658871
@@ -53,9 +56,9 @@ const officeLocations: OfficeLocation[] = [
     id: 'maasai-mara',
     name: 'Maasai Mara Safari Base',
     address: 'Maasai Mara National Reserve, Narok County, Kenya',
-    phone: '+254 71 234 5678',
-    email: 'mara@kenyasafaris.com',
-    hours: 'Open Daily: 6:00 AM - 6:00 PM',
+    phone: '‪+254 745470217',
+    email: 'Info@lynnietravis-adventuers.com',
+    hours: 'Open Daily: 8:00 AM - 5:00 PM',
     mapCoordinates: {
       lat: -1.5000,
       lng: 35.1500
@@ -125,34 +128,188 @@ const SuccessMessage: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
-// Social Media Icon Component
-// const SocialIcon: React.FC<{ icon: string; url: string }> = ({ icon, url }) => {
-//   return (
-//     <a 
-//       href={url} 
-//       target="_blank" 
-//       rel="noopener noreferrer"
-//       className="text-gray-600 hover:text-green-600 transition duration-300"
-//     >
-//       <i className={`fab fa-${icon} text-2xl`}></i>
-//     </a>
-//   );
-// };
+// Map Options Component
+const MapOptions: React.FC<{ location: OfficeLocation }> = ({ location }) => {
+  // Function to open in Google Maps
+  const openInGoogleMaps = () => {
+    const googleMapsUrl = `https://www.google.com/maps?q=${location.mapCoordinates.lat},${location.mapCoordinates.lng}`;
+    window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
+  };
+  
+  // Function to open in Apple Maps (for iOS devices)
+  const openInAppleMaps = () => {
+    const appleMapsUrl = `https://maps.apple.com/?q=${location.name}&ll=${location.mapCoordinates.lat},${location.mapCoordinates.lng}`;
+    window.open(appleMapsUrl, '_blank', 'noopener,noreferrer');
+  };
+  
+  // Function to open in Waze
+  const openInWaze = () => {
+    const wazeUrl = `https://waze.com/ul?ll=${location.mapCoordinates.lat},${location.mapCoordinates.lng}&navigate=yes`;
+    window.open(wazeUrl, '_blank', 'noopener,noreferrer');
+  };
+  
+  // Detect if user is on iOS
+  const isIOS = () => {
+    if (typeof window !== 'undefined') {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+    }
+    return false;
+  };
 
-// Map Placeholder Component
-const MapPlaceholder: React.FC<{ location: OfficeLocation }> = ({ location }) => {
   return (
-    <div className="bg-gray-200 rounded-lg overflow-hidden h-64 relative">
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-gray-500 mb-2">Map of {location.name}</div>
-          <div className="text-sm text-gray-400">
-            Coordinates: {location.mapCoordinates.lat}, {location.mapCoordinates.lng}
-          </div>
-        </div>
+    <div className="mt-6">
+      <h4 className="font-medium text-gray-700 mb-3">View this location:</h4>
+      <div className="flex flex-wrap gap-2">
+        {/* Google Maps Button */}
+        <button 
+          onClick={openInGoogleMaps}
+          className="inline-flex items-center px-3 py-2 bg-green-50 text-green-600 rounded-md hover:bg-green-100 transition duration-300 text-sm"
+        >
+          <svg 
+            className="w-4 h-4 mr-1" 
+            fill="currentColor" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Google Maps
+        </button>
+        
+        {/* Apple Maps Button (iOS only) */}
+        {isIOS() && (
+          <button 
+            onClick={openInAppleMaps}
+            className="inline-flex items-center px-3 py-2 bg-gray-50 text-gray-600 rounded-md hover:bg-gray-100 transition duration-300 text-sm"
+          >
+            <svg 
+              className="w-4 h-4 mr-1" 
+              fill="currentColor" 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+              <path d="M12 8l-4 4h3v4h2v-4h3z"/>
+            </svg>
+            Apple Maps
+          </button>
+        )}
+        
+        {/* Waze Button */}
+        <button 
+          onClick={openInWaze}
+          className="inline-flex items-center px-3 py-2 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100 transition duration-300 text-sm"
+        >
+          <svg 
+            className="w-4 h-4 mr-1" 
+            fill="currentColor" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24"
+          >
+            <path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41z"/>
+            <path d="M14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+          </svg>
+          Waze
+        </button>
+        
+        {/* Get Directions Button */}
+        <a 
+          href={`https://www.google.com/maps/dir/Current+Location/${location.mapCoordinates.lat},${location.mapCoordinates.lng}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-3 py-2 bg-yellow-50 text-yellow-700 rounded-md hover:bg-yellow-100 transition duration-300 text-sm"
+        >
+          <svg 
+            className="w-4 h-4 mr-1" 
+            fill="currentColor" 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24"
+          >
+            <path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+          </svg>
+          Get Directions
+        </a>
       </div>
     </div>
   );
+};
+
+// Map Component using Leaflet with useRef
+const MapComponent: React.FC<{ location: OfficeLocation }> = ({ location }) => {
+  const mapRef = useRef<HTMLDivElement>(null);
+  const mapInstanceRef = useRef<LeafletMap | null>(null);
+
+  useEffect(() => {
+    // Only run this on the client side, not during server rendering
+    if (typeof window !== 'undefined' && mapRef.current) {
+      // We'll use a dynamic import with require to make TypeScript happy
+      const initMap = async () => {
+        try {
+          // Dynamic import of Leaflet
+          const L = await import('leaflet');
+          
+          // Clean up previous map instance if it exists
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.remove();
+            mapInstanceRef.current = null;
+          }
+          
+          // Create a new map instance
+          if (mapRef.current) {
+            mapInstanceRef.current = L.map(mapRef.current).setView(
+            [location.mapCoordinates.lat, location.mapCoordinates.lng], 
+            13
+          );
+          
+          // Add the OpenStreetMap tiles
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+          }).addTo(mapInstanceRef.current);
+          
+          // Add a marker for the location
+          L.marker([location.mapCoordinates.lat, location.mapCoordinates.lng])
+            .addTo(mapInstanceRef.current)
+            .bindPopup(`<b>${location.name}</b><br>${location.address}`)
+            .openPopup();
+        }
+        } catch (error) {
+          console.error("Failed to load map:", error);
+        }
+      };
+      
+      // Initialize the map
+      initMap();
+    }
+    
+    // Cleanup function to remove map when component unmounts
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+      }
+    };
+  }, [location]); // Re-run when location changes
+
+  return <div ref={mapRef} className="h-64 rounded-lg overflow-hidden"></div>;
+};
+
+// Leaflet CSS Import Component
+const LeafletCSS: React.FC = () => {
+  useEffect(() => {
+    // Add Leaflet CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+    document.head.appendChild(link);
+    
+    // Clean up
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+  
+  return null;
 };
 
 // FAQ Item Component
@@ -219,9 +376,12 @@ const ContactUsPage: React.FC = () => {
 
   // Get the currently selected location
   const currentLocation = officeLocations.find(loc => loc.id === selectedLocation) || officeLocations[0];
+  
+  // Map Options Component is defined outside now
 
   return (
     <div>
+      <LeafletCSS />
       <TopBar />
       <Navigation />
       
@@ -379,24 +539,12 @@ const ContactUsPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <MapPlaceholder location={currentLocation} />
-            {/* Social Media */}
-            {/* <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Connect With Us</h2>
-              <div className="flex space-x-6 mb-4">
-                <SocialIcon icon="facebook" url="https://facebook.com" />
-                <SocialIcon icon="instagram" url="https://instagram.com" />
-                <SocialIcon icon="twitter" url="https://twitter.com" />
-                <SocialIcon icon="youtube" url="https://youtube.com" />
-                <SocialIcon icon="tripadvisor" url="https://tripadvisor.com" />
-              </div>
-              <p className="text-gray-600">
-                Follow us on social media for the latest safari updates, wildlife sightings, and special offers.
-              </p>
-            </div> */}
+              {/* Interactive Map */}
+              <MapComponent location={currentLocation} />
+              
+              {/* Map Options */}
+              <MapOptions location={currentLocation} />
             </div>
-
           </div>
         </div>
 
@@ -421,7 +569,8 @@ const ContactUsPage: React.FC = () => {
           <p className="text-gray-700 mb-6">
             For urgent inquiries or last-minute bookings, call our 24/7 safari hotline:
           </p>
-          <div className="text-2xl font-bold text-green-600 mb-6">+254 700 123 456</div>
+          <div className="text-2xl font-bold text-green-600 mb-6">‪+254 745470217</div>
+          <div className="text-2xl font-bold text-green-600 mb-6">‪Email: Info@lynnietravis-adventuers.com</div>
           <p className="text-gray-600">
             Our team is available around the clock to assist with emergency safari arrangements or urgent questions.
           </p>

@@ -149,7 +149,7 @@ export const Navigation: React.FC = () => {
             </div>
             
             <div className="p-4">
-              <button className="bg-green-600 w-full text-white px-3 py-2 rounded-md hover:bg-green-700">
+              <button onClick={()=>handleTabChange('contact')} className="bg-green-600 w-full text-white px-3 py-2 rounded-md hover:bg-green-700">
                 Book Now
               </button>
             </div>
@@ -164,7 +164,7 @@ export const Navigation: React.FC = () => {
           )}
           
           <div className="flex items-center">
-            <button className="bg-green-600 hidden md:block text-white px-3 py-2 rounded-md hover:bg-green-700">
+            <button onClick={()=>handleTabChange('contact')} className="bg-green-600 hidden md:block text-white px-3 py-2 rounded-md hover:bg-green-700">
               Book Now
             </button>
             <Menu 

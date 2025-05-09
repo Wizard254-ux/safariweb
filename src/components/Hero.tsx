@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
           Explore Africa's Finest Adventures
         </h1>
         <p className="text-xl md:text-2xl text-center mb-8">
-          Unforgettable experiences tailored just for you
+        Where Journeys Begin, and Memories Last forever
         </p>
         
         <div className="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
