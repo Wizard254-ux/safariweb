@@ -61,7 +61,7 @@ export interface Post {
       location: 'Amboseli, Kenya',
       type: 'vlog',
       thumbnail: 'https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg',
-      videoUrl: 'https://www.youtube.com/embed/eMvBLMBKSiE',
+      videoUrl: 'https://www.youtube.com/watch?v=ZWVxNnX8fwA',
       featured: true,
       categories: ['Big Cats', 'Amboseli', 'Wildlife']
     },
@@ -119,7 +119,7 @@ export interface Post {
       location: 'Samburu, Kenya',
       type: 'vlog',
       thumbnail: 'https://images.pexels.com/photos/3758104/pexels-photo-3758104.jpeg',
-      videoUrl: 'https://www.youtube.com/embed/QWOjpYg1BJ8',
+      videoUrl: 'https://www.youtube.com/watch?v=D3BeKr9TLuk',
       featured: false,
       categories: ['Culture', 'Samburu', 'Local Experience']
     },
@@ -185,7 +185,7 @@ export interface Post {
       location: 'Tsavo, Kenya',
       type: 'vlog',
       thumbnail: 'https://images.pexels.com/photos/1054655/pexels-photo-1054655.jpeg',
-      videoUrl: 'https://www.youtube.com/embed/uBo2cY-PYQM',
+      videoUrl: 'https://www.youtube.com/watch?v=KjVXEy7Q6Ak',
       featured: true,
       categories: ['Conservation', 'Elephants', 'Tsavo']
     }
