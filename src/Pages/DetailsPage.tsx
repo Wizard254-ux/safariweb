@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { safariExperiences } from '../components/services/BushSafaris';
 import { beachExperiences } from '../components/services/BeachExcursions';
@@ -8,6 +8,7 @@ import { golfExperiences } from '../components/services/SportsGolf';
 import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import Footer from '../components/Footer';
+import axios from 'axios'; // Make sure axios is imported
 
 // Define the Experience type
 interface Experience {
@@ -23,10 +24,25 @@ interface Experience {
 const DetailsPage: React.FC = () => {
   const { id, category } = useParams<{ id: string; category: string }>();
   const [showContactForm, setShowContactForm] = useState<boolean>(false);
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    preferredDate: '',
+    additionalInfo: ''
+  });
+  
+  // Form submission status
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitMessage, setSubmitMessage] = useState<{type: 'success' | 'error', text: string} | null>(null);
+  
   useEffect(() => {
     // Instantly scroll to top without animation
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, []);
+  
   // Get the appropriate experience array based on category
   const getExperiencesByCategory = (category: string): Experience[] => {
     switch(category) {
@@ -51,6 +67,69 @@ const DetailsPage: React.FC = () => {
   
   const handleBooking = () => {
     setShowContactForm(!showContactForm);
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email) {
+      setSubmitMessage({
+        type: 'error',
+        text: 'Please provide your name and email'
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+    
+    try {
+      // Get the appropriate category display name
+      const categoryName = getCategoryDisplayName(category || '');
+      
+      const response = await axios.post('https://missionsys-backend.onrender.com/api/booking', {
+        ...formData,
+        experienceTitle: selectedExperience?.title,
+        experienceCategory: categoryName,
+        // You can add a specific email here if needed
+        // emailTo: 'specific@example.com'
+      });
+      
+      if (response.data.success) {
+        setSubmitMessage({
+          type: 'success',
+          text: 'Your booking request has been submitted successfully. We will contact you shortly.'
+        });
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          preferredDate: '',
+          additionalInfo: ''
+        });
+      } else {
+        throw new Error(response.data.message || 'Failed to submit booking request');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage({
+        type: 'error',
+        text: 'There was a problem submitting your request. Please try again later.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Handle case where experience is not found
@@ -95,7 +174,7 @@ const DetailsPage: React.FC = () => {
       <Navigation />
       <div className="mx-auto max-w-[50rem] px-4 py-8">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="flex flex-col  md:flex-row justify-center items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             {/* Image - full width on mobile, half width on larger screens */}
             <div className="w-full md:w-1/2">
               <img 
@@ -143,15 +222,25 @@ const DetailsPage: React.FC = () => {
         {showContactForm && (
           <div className="mt-6 bg-white rounded-lg shadow-lg p-5">
             <h2 className="text-xl font-bold mb-4">Contact Us to Book This {categoryName}</h2>
-            <form>
+            
+            {submitMessage && (
+              <div className={`mb-4 p-3 rounded-lg ${submitMessage.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                {submitMessage.text}
+              </div>
+            )}
+            
+            <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-700 text-sm mb-1" htmlFor="name">Full Name</label>
                   <input 
                     type="text" 
                     id="name" 
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm" 
                     placeholder="Your full name"
+                    required
                   />
                 </div>
                 <div>
@@ -159,8 +248,11 @@ const DetailsPage: React.FC = () => {
                   <input 
                     type="email" 
                     id="email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm" 
                     placeholder="Your email address"
+                    required
                   />
                 </div>
                 <div>
@@ -168,23 +260,29 @@ const DetailsPage: React.FC = () => {
                   <input 
                     type="tel" 
                     id="phone" 
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm" 
                     placeholder="Your phone number"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 text-sm mb-1" htmlFor="date">Preferred Date</label>
+                  <label className="block text-gray-700 text-sm mb-1" htmlFor="preferredDate">Preferred Date</label>
                   <input 
                     type="date" 
-                    id="date" 
+                    id="preferredDate" 
+                    value={formData.preferredDate}
+                    onChange={handleInputChange}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-gray-700 text-sm mb-1" htmlFor="message">Additional Information</label>
+                  <label className="block text-gray-700 text-sm mb-1" htmlFor="additionalInfo">Additional Information</label>
                   <textarea 
-                    id="message" 
+                    id="additionalInfo" 
                     rows={3}
+                    value={formData.additionalInfo}
+                    onChange={handleInputChange}
                     className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm" 
                     placeholder="Tell us about your group size, special requirements, etc."
                   ></textarea>
@@ -192,9 +290,10 @@ const DetailsPage: React.FC = () => {
               </div>
               <button 
                 type="submit"
-                className="mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 text-sm"
+                disabled={isSubmitting}
+                className={`mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 text-sm ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Submit Booking Request
+                {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
               </button>
             </form>
           </div>

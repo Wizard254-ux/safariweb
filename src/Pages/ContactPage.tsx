@@ -29,40 +29,16 @@ interface FAQ {
 // Sample office locations
 const officeLocations: OfficeLocation[] = [
   {
-    id: 'nairobi',
-    name: 'Nairobi Headquarters',
-    address: '123 Kenyatta Avenue, Nairobi, Kenya',
-    phone: '‪+254 745470217‬',
-    email: 'Info@lynnietravis-adventuers.com',
-    hours: 'Monday - Friday: 8:00 AM - 5:00 PM',
-    mapCoordinates: {
-      lat: -1.286389,
-      lng: 36.817223
-    }
-  },
-  {
-    id: 'mombasa',
-    name: 'Mombasa Office',
-    address: '45 Beach Road, Mombasa, Kenya',
-    phone: '+254 759491995‬',
-    email: 'Ceo@lynnietravisadventures.com',
-    hours: 'Monday - Friday: 8:00 AM - 5:00 PM',
-    mapCoordinates: {
-      lat: -4.043740,
-      lng: 39.658871
-    }
-  },
-  {
-    id: 'maasai-mara',
-    name: 'Maasai Mara Safari Base',
-    address: 'Maasai Mara National Reserve, Narok County, Kenya',
-    phone: '‪+254 745470217',
-    email: 'Info@lynnietravis-adventuers.com',
-    hours: 'Open Daily: 8:00 AM - 5:00 PM',
-    mapCoordinates: {
-      lat: -1.5000,
-      lng: 35.1500
-    }
+    id: 'Nairobi',
+    name: 'LYNNIE TRAVIS ADVENTURES',
+    address: 'UNIAFRIC HOUSE KOINANGE STREET',
+    phone: '‪+254 759491995‬',
+    email: 'lynnietravisadventures.deals@gmail.com',
+    hours: 'Monday - Friday: 8:30 AM - 5:00 PM',
+   mapCoordinates: {
+        lat: -1.28264,
+        lng: 36.81759
+      }
   }
 ];
 
@@ -104,7 +80,7 @@ interface FormState {
 // Success Message Component
 const SuccessMessage: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-[rgba(0,0,0,0.6)] flex items-center justify-center z-50">
       <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
         <div className="flex justify-center mb-4">
           <div className="bg-green-100 p-3 rounded-full">
@@ -361,13 +337,50 @@ const ContactUsPage: React.FC = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
-    // For now, we'll just show the success message
-    setFormSubmitted(true);
-  };
+// Changes to add to ContactUsPage component in paste.txt
+// Replace the handleSubmit function with this:
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  try {
+    // Send the form data to your backend endpoint
+    const response = await fetch('https://missionsys-backend.onrender.com/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...formData,
+        // Send to office email
+        emailTo: currentLocation.email
+      }),
+    });
+
+    if (response.ok) {
+      console.log('Message sent successfully');
+      setFormData(
+{
+    name: '',
+    email: '',
+    phone: '',
+    travelDate: '',
+    partySize: '',
+    safariType: '',
+    message: ''
+  }
+
+      )
+      setFormSubmitted(true);
+    } else {
+      console.error('Failed to send message');
+      alert('Failed to send message. Please try again later.');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    alert('An error occurred. Please try again later.');
+  }
+};
 
   // Toggle FAQ open/closed state
   const toggleFAQ = (index: number) => {
@@ -385,9 +398,9 @@ const ContactUsPage: React.FC = () => {
       <TopBar />
       <Navigation />
       
-      <div className="mx-auto px-4 py-12">
+      <div className="mx-auto px-4 py-12 pt-4">
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <div className="text-center bg-[rgba(100,222,102,0.2)] p-6 rounded-sm mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Have questions about our safaris? Ready to book your adventure? Our team is here to help you plan the perfect Kenyan safari experience.
@@ -523,7 +536,7 @@ const ContactUsPage: React.FC = () => {
                         : 'text-gray-600 hover:text-green-600'
                     }`}
                   >
-                    {location.name.split(' ')[0]}
+                    {location.id.split(' ')[0]}
                   </button>
                 ))}
               </div>
@@ -569,8 +582,8 @@ const ContactUsPage: React.FC = () => {
           <p className="text-gray-700 mb-6">
             For urgent inquiries or last-minute bookings, call our 24/7 safari hotline:
           </p>
-          <div className="text-2xl font-bold text-green-600 mb-6">‪+254 745470217</div>
-          <div className="text-2xl font-bold text-green-600 mb-6">‪Email: Info@lynnietravis-adventuers.com</div>
+          <div className="text-2xl font-bold text-green-600 mb-6">‪+254 759491995‬</div>
+          <div className="text-2xl font-bold text-green-600 mb-6">‪Email:lynnietravisadventures.deals@gmail.com</div>
           <p className="text-gray-600">
             Our team is available around the clock to assist with emergency safari arrangements or urgent questions.
           </p>

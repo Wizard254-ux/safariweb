@@ -1,35 +1,34 @@
 // src/pages/HomePage.tsx
 
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import { Hero } from '../components/Hero';
 import { TabNavigator } from '../components/TabNavigator';
-import { ServiceCarousel } from '../components/ServiceCarousel';
-import { BushSafaris } from '../components/services/BushSafaris';
-import { SportsGolf } from '../components/services/SportsGolf';
-import { AirSafaris } from '../components/services/AirSafariExperience';
-import { BeachExcursions } from '../components/services/BeachExcursions';
-import { CulturalSafaris } from '../components/services/CulturalSafaris';
 import Footer from '../components/Footer';
-import AboutUs from '../components/AboutUs';
 
-import { SafariPackagesComponent } from '../components/SafariPackages';
+// Lazy load components
+const BushSafaris = lazy(() => import('../components/services/BushSafaris').then(module => ({ default: module.BushSafaris })));
+const SportsGolf = lazy(() => import('../components/services/SportsGolf').then(module => ({ default: module.SportsGolf })));
+const AirSafaris = lazy(() => import('../components/services/AirSafariExperience').then(module => ({ default: module.AirSafaris })));
+const BeachExcursions = lazy(() => import('../components/services/BeachExcursions').then(module => ({ default: module.BeachExcursions })));
+const CulturalSafaris = lazy(() => import('../components/services/CulturalSafaris').then(module => ({ default: module.CulturalSafaris })));
+const SafariPackagesComponent = lazy(() => import('../components/SafariPackages').then(module => ({ default: module.SafariPackagesComponent })));
+const ServiceCarousel = lazy(() => import('../components/ServiceCarousel').then(module => ({ default: module.ServiceCarousel })));
+const AboutUs = lazy(() => import('../components/AboutUs'));
 
 const HomePage: React.FC = () => {
-  const localActiveTab = localStorage.getItem('activeTab') || 'bush-safaris';
-  const [activeTab, setActiveTab] = useState(localActiveTab);
-
-  const serviceComponents = {
-    'bush-safaris': <BushSafaris />,
-    'sports-golf': <SportsGolf />,
-    'beach-excursions': <BeachExcursions />,
-    'cultural-safaris': <CulturalSafaris />,
-    'air-safaris': <AirSafaris />,
-    'Travel-Packages': <SafariPackagesComponent />,
-    '': <SafariPackagesComponent />,
-  };
+  // Get active tab from localStorage with fallback and state
+  const [activeTab, setActiveTab] = useState<string>('bush-safaris');
+  
+  // Set initial tab on component mount
+  useEffect(() => {
+    const savedTab = localStorage.getItem('activeTab');
+    if (savedTab) {
+      setActiveTab(savedTab);
+    }
+  }, []);
 
   const handleTabChange = (tabId: string) => {
     localStorage.setItem('activeTab', tabId);
@@ -43,33 +42,62 @@ const HomePage: React.FC = () => {
     exit: { opacity: 0, x: -20 }
   };
 
+  // Function to render the active component
+  const renderActiveComponent = () => {
+    switch (activeTab) {
+      case 'bush-safaris':
+        return <BushSafaris />;
+      case 'sports-golf':
+        return <SportsGolf />;
+      case 'beach-excursions':
+        return <BeachExcursions />;
+      case 'cultural-safaris':
+        return <CulturalSafaris />;
+      case 'air-safaris':
+        return <AirSafaris />;
+      case 'Travel-Packages':
+        return <SafariPackagesComponent />;
+      default:
+        return <AboutUs />;
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen">
       <TopBar />
       <Navigation />
+      
+      {/* Hero Section */}
       <Hero />
-      <div className="mx-auto px-4 py-8">
-        <TabNavigator activeTab={activeTab} onTabChange={handleTabChange} />
-        <div className="mt-6">
+      
+      {/* Tab Navigation */}
+      <TabNavigator activeTab={activeTab} onTabChange={handleTabChange} />
+          <div className="mt-6">
           <ServiceCarousel serviceType={activeTab} />
         </div>
-        <div className="mt-8 relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={tabVariants}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              {serviceComponents[activeTab as keyof typeof serviceComponents]}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      
+      {/* Content Area with Animation */}
+      <div className="flex-grow  mx-auto px-4 py-8">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={tabVariants}
+            transition={{ duration: 0.3 }}
+          >
+            <Suspense fallback={
+              <div className="flex justify-center items-center p-12">
+                <div className="animate-spin rounded-full h-12 border-b-2 border-green-500"></div>
+              </div>
+            }>
+              {renderActiveComponent()}
+            </Suspense>
+          </motion.div>
+        </AnimatePresence>
       </div>
-      <AboutUs />
-
+      <AboutUs/>
       <Footer />
     </div>
   );

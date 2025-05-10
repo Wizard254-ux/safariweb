@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export const Navigation: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get active page from URL instead of localStorage
+  const getActivePage = () => {
+    const path = location.pathname.substring(1); // Remove leading slash
+    return path;
+  };
+  
+  // Only use localStorage for sidebar state
   const [isSidebarOpen, setSidebarOpen] = useState(() => {
-    return localStorage.getItem('sidebarOpen') === 'true';
+    try {
+      return localStorage.getItem('sidebarOpen') === 'true';
+    } catch (error) {
+      console.error('localStorage error:', error);
+      return false;
+    }
   });
     
   // Close sidebar when screen size changes to desktop
@@ -21,16 +35,26 @@ export const Navigation: React.FC = () => {
   }, []);
 
   const handleTabChange = (tabName: string) => {
-    localStorage.setItem('activePage', tabName);
+    // Only navigate, don't close the sidebar
     navigate(`/${tabName}`);
-    // Don't close sidebar on navigation - let it persist
   };
 
+  // Store sidebar state in localStorage but with less frequency
   const toggleSidebar = () => {
-    const newSidebarState = !isSidebarOpen;
-    setSidebarOpen(newSidebarState);
-    localStorage.setItem('sidebarOpen', newSidebarState.toString());
+    setSidebarOpen(prev => {
+      try {
+        // Update localStorage on toggle
+        localStorage.setItem('sidebarOpen', (!prev).toString());
+        return !prev;
+      } catch (error) {
+        console.error('localStorage error:', error);
+        return !prev;
+      }
+    });
   };
+
+  // Get active page from URL path
+  const activePage = getActivePage();
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -47,7 +71,7 @@ export const Navigation: React.FC = () => {
             <button 
               onClick={() => handleTabChange("")} 
               className={`p-2 rounded-sm font-medium ${
-                localStorage.getItem('activePage') === "" 
+                activePage === "" 
                   ? "bg-green-100 text-green-600" 
                   : "text-gray-700 hover:text-green-600"
               }`}
@@ -58,7 +82,7 @@ export const Navigation: React.FC = () => {
             <button 
               onClick={() => handleTabChange("bloga&vlogs")} 
               className={`p-2 rounded-sm font-medium ${
-                localStorage.getItem('activePage') === "bloga&vlogs" 
+                activePage === "bloga&vlogs" 
                   ? "bg-green-100 text-green-600" 
                   : "text-gray-700 hover:text-green-600"
               }`}
@@ -69,7 +93,7 @@ export const Navigation: React.FC = () => {
             <button 
               onClick={() => handleTabChange("contact")} 
               className={`p-2 rounded-sm font-medium ${
-                localStorage.getItem('activePage') === "contact" 
+                activePage === "contact" 
                   ? "bg-green-100 text-green-600" 
                   : "text-gray-700 hover:text-green-600"
               }`}
@@ -80,7 +104,7 @@ export const Navigation: React.FC = () => {
             <button 
               onClick={() => handleTabChange("testimonials")} 
               className={`p-2 rounded-sm font-medium ${
-                localStorage.getItem('activePage') === "testimonials" 
+                activePage === "testimonials" 
                   ? "bg-green-100 text-green-600" 
                   : "text-gray-700 hover:text-green-600"
               }`}
@@ -91,7 +115,7 @@ export const Navigation: React.FC = () => {
 
           {/* Mobile Sidebar */}
           <div 
-            className={`fixed top-0 bottom-0 left-0 w-64 bg-gray-900 md:hidden transition-transform duration-300 ease-in-out z-50 flex flex-col justify-between ${
+            className={`fixed top-0 bottom-0 left-0 w-64 bg-gray-900 md:hidden transition-transform duration-300 ease-in-out z-[100000] flex flex-col justify-between ${
               isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
@@ -105,9 +129,9 @@ export const Navigation: React.FC = () => {
                 <button 
                   onClick={() => handleTabChange("")} 
                   className={`p-2 rounded-sm font-medium text-left ${
-                    localStorage.getItem('activePage') === "" 
-                      ? "bg-green-700 text-white" 
-                      : "text-white hover:text-green-600"
+                    activePage === "" 
+                      ? "bg-green-600 text-white" 
+                      : "text-white hover:bg-green-700 hover:text-white"
                   }`}
                 >
                   Home
@@ -116,9 +140,9 @@ export const Navigation: React.FC = () => {
                 <button 
                   onClick={() => handleTabChange("testimonials")} 
                   className={`p-2 rounded-sm font-medium text-left ${
-                    localStorage.getItem('activePage') === "testimonials" 
-                      ? "bg-green-700 text-white" 
-                      : "text-white hover:text-green-600"
+                    activePage === "testimonials" 
+                      ? "bg-green-600 text-white" 
+                      : "text-white hover:bg-green-700 hover:text-white"
                   }`}
                 >
                   Testimonials
@@ -127,9 +151,9 @@ export const Navigation: React.FC = () => {
                 <button 
                   onClick={() => handleTabChange("bloga&vlogs")} 
                   className={`p-2 rounded-sm font-medium text-left ${
-                    localStorage.getItem('activePage') === "bloga&vlogs" 
-                      ? "bg-green-700 text-white" 
-                      : "text-white hover:text-green-600"
+                    activePage === "bloga&vlogs" 
+                      ? "bg-green-600 text-white" 
+                      : "text-white hover:bg-green-700 hover:text-white"
                   }`}
                 >
                   Blogs & Vlogs
@@ -138,9 +162,9 @@ export const Navigation: React.FC = () => {
                 <button 
                   onClick={() => handleTabChange("contact")} 
                   className={`p-2 rounded-sm font-medium text-left ${
-                    localStorage.getItem('activePage') === "contact" 
-                      ? "bg-green-700 text-white" 
-                      : "text-white hover:text-green-600"
+                    activePage === "contact" 
+                      ? "bg-green-600 text-white" 
+                      : "text-white hover:bg-green-700 hover:text-white"
                   }`}
                 >
                   Contact
@@ -149,7 +173,7 @@ export const Navigation: React.FC = () => {
             </div>
             
             <div className="p-4">
-              <button onClick={()=>handleTabChange('contact')} className="bg-green-600 w-full text-white px-3 py-2 rounded-md hover:bg-green-700">
+              <button onClick={() => handleTabChange('contact')} className="bg-green-600 w-full text-white px-3 py-2 rounded-md hover:bg-green-700">
                 Book Now
               </button>
             </div>
@@ -164,7 +188,7 @@ export const Navigation: React.FC = () => {
           )}
           
           <div className="flex items-center">
-            <button onClick={()=>handleTabChange('contact')} className="bg-green-600 hidden md:block text-white px-3 py-2 rounded-md hover:bg-green-700">
+            <button onClick={() => handleTabChange('contact')} className="bg-green-600 hidden md:block text-white px-3 py-2 rounded-md hover:bg-green-700">
               Book Now
             </button>
             <Menu 

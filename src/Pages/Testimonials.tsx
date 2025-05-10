@@ -168,7 +168,7 @@ const TestimonialCard = ({ testimonial, index }:{testimonial:Testimonial,index:n
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       custom={index}
-      className={`bg-white rounded-lg shadow-lg overflow-hidden ${testimonial.featured ? 'border-2 border-yellow-400' : ''}`}
+      className={`bg-white  rounded-lg shadow-lg overflow-hidden ${testimonial.featured ? 'border-2 border-yellow-400' : ''}`}
       whileHover={{ y: -10, transition: { duration: 0.3 } }}
     >
       <div className="p-6">
@@ -263,15 +263,15 @@ const TestimonialsPage = () => {
       <TopBar />
       <Navigation />
       
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl  mx-auto px-4 py-12 pt-4">
         <motion.div 
           ref={headerRef}
           variants={headerVariants}
           initial="hidden"
           animate={headerInView ? "visible" : "hidden"}
-          className="text-center mb-12"
+          className="text-center bg-[rgba(100,222,102,0.2)] p-6 mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Customer Testimonials</h1>
+          <h1 className="text-4xl  font-bold text-gray-900 mb-4">Customer Testimonials</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Read what our clients have to say about their unforgettable safari experiences in Kenya.
           </p>

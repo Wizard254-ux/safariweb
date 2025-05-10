@@ -72,7 +72,7 @@ export const BushSafaris: React.FC = () => {
         </p>
       </div>
       
-      <div className="flex flex-wrap justify-center items-center w-full max-w-screen-xl mx-auto p-4">
+      <div className="flex flex-wrap justify-center items-center w-full mx-auto p-4">
       {safariExperiences.map((safari) => (
         <div
           key={safari.id}

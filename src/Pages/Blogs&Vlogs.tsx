@@ -195,9 +195,9 @@ const VlogAndBlogsPage: React.FC = () => {
     <div>
       <TopBar />
       <Navigation />
-      <div className="mx-auto px-4 py-12">
+      <div className="mx-auto px-4 py-12 pt-6">
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 bg-[rgba(100,222,102,0.2)] text-white p-8 rounded-lg">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Safari Vlogs & Blogs</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Immerse yourself in Kenya's wild beauty through our collection of safari stories, 

@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: "url('/HeroImage.jpg')", 
+          backgroundImage: "url('https://res.cloudinary.com/dancxhgah/image/upload/v1746881483/qsvcrwljv0bf97rvo6f1.jpg')", 
           filter: "brightness(0.7)"
         }}
       />
