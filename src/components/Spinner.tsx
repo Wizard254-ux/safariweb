@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Mountain, Compass, Sun, Palmtree, Camera } from 'lucide-react';
 
 const SafariSpinner = () => {
