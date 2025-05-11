@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import Footer from '../components/Footer';
-import {posts} from '../components/BlogsInterface'; // Assuming posts data is in a separate file
-import { Link } from 'react-router-dom';
+import { posts } from '../components/BlogsInterface'; // Assuming posts data is in a separate file
 
 // Interface for blog and vlog posts
 interface Post {
@@ -21,15 +22,42 @@ interface Post {
   categories: string[];
 }
 
-
 // Filter type for content filtering
 type FilterOption = 'all' | 'blogs' | 'vlogs' | 'featured';
 type SortOption = 'latest' | 'oldest';
 
-// Post Card Component
-const PostCard: React.FC<{ post: Post }> = ({ post }) => {
+// AnimatedPostCard Component with InView detection
+const AnimatedPostCard: React.FC<{ post: Post; index: number }> = ({ post, index }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+    },
+    visible: (i: number) => ({ 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        delay: i * 0.1,
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    })
+  };
+
   return (
-    <div className={`bg-white rounded-lg shadow-lg overflow-hidden ${post.featured ? 'border-2 border-yellow-400' : ''}`}>
+    <motion.div
+      ref={ref}
+      custom={index}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={cardVariants}
+      className={`bg-white rounded-lg shadow-lg overflow-hidden ${post.featured ? 'border-2 border-yellow-400' : ''}`}
+    >
       <div className="relative">
         <img 
           src={post.thumbnail} 
@@ -75,23 +103,56 @@ const PostCard: React.FC<{ post: Post }> = ({ post }) => {
           </div>
         )}
         <div className="mt-6">
-          <Link 
-            to={`/posts/${post.id}`} 
+          <button 
+            onClick={() => handlePostClick(post)}
             className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition duration-300 inline-block"
           >
             {post.type === 'blog' ? 'Read More' : 'Watch Video'}
-          </Link>
+          </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
+// Function to handle post clicks (replace react-router navigation)
+const handlePostClick = (post: Post) => {
+  // Store the selected post in localStorage or state management
+  localStorage.setItem('selectedPost', JSON.stringify(post));
+  // Navigate programmatically without react-router
+  window.location.href = `/posts/${post.id}`;
+  // Alternatively, you could use a state management approach to show the post detail
+  // within the same page without navigation
+};
 
-// Featured Post Component
-const FeaturedPost: React.FC<{ post: Post }> = ({ post }) => {
+// Featured Post Component with Animation
+const FeaturedPost: React.FC<{ post: Post; index: number }> = ({ post, index }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const featuredVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        delay: index * 0.2, 
+        duration: 0.7, 
+        ease: "easeOut" 
+      } 
+    }
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={featuredVariants}
+      className="bg-white rounded-lg shadow-lg overflow-hidden mb-8"
+    >
       <div className="md:flex">
         <div className="md:w-1/2">
           <div className="relative h-64 md:h-full">
@@ -137,22 +198,44 @@ const FeaturedPost: React.FC<{ post: Post }> = ({ post }) => {
               </span>
             ))}
           </div>
-          <Link 
-            to={`/posts/${post.id}`}
+          <button 
+            onClick={() => handlePostClick(post)}
             className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300 inline-block"
           >
             {post.type === 'blog' ? 'Read Full Article' : 'Watch Full Video'}
-          </Link>
+          </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
+
 const VlogAndBlogsPage: React.FC = () => {
   const [filter, setFilter] = useState<FilterOption>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [sort, setSort] = useState<SortOption>('latest');
+  
+  // Section animations
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.4 }
+    }
+  };
 
   // Extract all unique categories
   const allCategories = Array.from(
@@ -196,27 +279,47 @@ const VlogAndBlogsPage: React.FC = () => {
       <TopBar />
       <Navigation />
       <div className="mx-auto px-4 py-12 pt-6">
-        {/* Hero Section */}
-        <div className="text-center mb-12 bg-[rgba(100,222,102,0.2)] text-white p-8 rounded-lg">
+        {/* Hero Section with Animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 bg-[rgba(100,222,102,0.2)] text-white p-8 rounded-lg"
+        >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Safari Vlogs & Blogs</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Immerse yourself in Kenya's wild beauty through our collection of safari stories, 
             videos, and expert insights from the bush.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Featured Posts Carousel */}
+        {/* Featured Posts Carousel with Animation */}
         {featuredPosts.length > 0 && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Featured Content</h2>
-            {featuredPosts.map(post => (
-              <FeaturedPost key={post.id} post={post} />
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={sectionVariants}
+            className="mb-16"
+          >
+            <motion.h2 
+              variants={itemVariants} 
+              className="text-2xl font-bold text-gray-900 mb-6"
+            >
+              Featured Content
+            </motion.h2>
+            {featuredPosts.map((post, index) => (
+              <FeaturedPost key={post.id} post={post} index={index} />
             ))}
-          </div>
+          </motion.div>
         )}
 
-        {/* Filters and Search */}
-        <div className="mb-8">
+        {/* Filters and Search with Animation */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="mb-8"
+        >
           <div className="flex flex-wrap gap-4 justify-between items-center mb-6">
             <div className="flex flex-wrap gap-2">
               <button 
@@ -284,17 +387,22 @@ const VlogAndBlogsPage: React.FC = () => {
               </select>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Post Grid */}
+        {/* Post Grid with Lazy Loading Animation */}
         {filteredPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <PostCard key={post.id} post={post} />
+            {filteredPosts.map((post, index) => (
+              <AnimatedPostCard key={post.id} post={post} index={index} />
             ))}
           </div>
         ) : (
-          <div className="text-center py-12">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-center py-12"
+          >
             <p className="text-xl text-gray-600">No content matches your search criteria.</p>
             <button 
               onClick={() => {setFilter('all'); setSearchTerm(''); setSelectedCategory('');}}
@@ -302,24 +410,43 @@ const VlogAndBlogsPage: React.FC = () => {
             >
               Clear Filters
             </button>
-          </div>
+          </motion.div>
         )}
 
-        {/* Upload Your Content CTA */}
-        <div className="mt-16 bg-green-50 rounded-lg p-8 text-center">
+        {/* Upload Your Content CTA with Animation */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="mt-16 bg-green-50 rounded-lg p-8 text-center"
+        >
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Share Your Safari Story</h2>
           <p className="text-gray-700 mb-6">
             Been on one of our safaris? We'd love to feature your photos, videos, or blog posts about your experience!
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="flex flex-col sm:flex-row justify-center gap-4"
+          >
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
+            >
               Upload Your Photos
-            </button>
-            <button className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300">
+            </motion.button>
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
+            >
               Submit Your Story
-            </button>
-          </div>
-        </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
       </div>
       <Footer />
     </div>

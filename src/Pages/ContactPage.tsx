@@ -35,10 +35,10 @@ const officeLocations: OfficeLocation[] = [
     phone: '‪+254 759491995‬',
     email: 'lynnietravisadventures.deals@gmail.com',
     hours: 'Monday - Friday: 8:30 AM - 5:00 PM',
-   mapCoordinates: {
-        lat: -1.28264,
-        lng: 36.81759
-      }
+    mapCoordinates: {
+      lat: -1.28264,
+      lng: 36.81759
+    }
   }
 ];
 
@@ -81,21 +81,21 @@ interface FormState {
 const SuccessMessage: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-[rgba(0,0,0,0.6)] flex items-center justify-center z-50">
-      <div className="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
-        <div className="flex justify-center mb-4">
-          <div className="bg-green-100 p-3 rounded-full">
-            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-2">
+        <div className="flex justify-center mb-3">
+          <div className="bg-green-100 p-2 rounded-full">
+            <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
         </div>
-        <h3 className="text-xl font-bold text-center mb-2">Thank You!</h3>
-        <p className="text-center text-gray-700 mb-6">
+        <h3 className="text-lg font-bold text-center mb-2">Thank You!</h3>
+        <p className="text-center text-gray-700 text-sm mb-4">
           Your message has been sent successfully. One of our safari specialists will contact you shortly.
         </p>
         <button 
           onClick={onClose}
-          className="w-full py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
+          className="w-full py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
         >
           Close
         </button>
@@ -133,16 +133,16 @@ const MapOptions: React.FC<{ location: OfficeLocation }> = ({ location }) => {
   };
 
   return (
-    <div className="mt-6">
-      <h4 className="font-medium text-gray-700 mb-3">View this location:</h4>
+    <div className="mt-4">
+      <h4 className="font-medium text-gray-700 text-sm mb-2">View this location:</h4>
       <div className="flex flex-wrap gap-2">
         {/* Google Maps Button */}
         <button 
           onClick={openInGoogleMaps}
-          className="inline-flex items-center px-3 py-2 bg-green-50 text-green-600 rounded-md hover:bg-green-100 transition duration-300 text-sm"
+          className="inline-flex items-center px-2 py-1 bg-green-50 text-green-600 rounded-md hover:bg-green-100 transition duration-300 text-xs"
         >
           <svg 
-            className="w-4 h-4 mr-1" 
+            className="w-3 h-3 mr-1" 
             fill="currentColor" 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24"
@@ -156,10 +156,10 @@ const MapOptions: React.FC<{ location: OfficeLocation }> = ({ location }) => {
         {isIOS() && (
           <button 
             onClick={openInAppleMaps}
-            className="inline-flex items-center px-3 py-2 bg-gray-50 text-gray-600 rounded-md hover:bg-gray-100 transition duration-300 text-sm"
+            className="inline-flex items-center px-2 py-1 bg-gray-50 text-gray-600 rounded-md hover:bg-gray-100 transition duration-300 text-xs"
           >
             <svg 
-              className="w-4 h-4 mr-1" 
+              className="w-3 h-3 mr-1" 
               fill="currentColor" 
               xmlns="http://www.w3.org/2000/svg" 
               viewBox="0 0 24 24"
@@ -174,10 +174,10 @@ const MapOptions: React.FC<{ location: OfficeLocation }> = ({ location }) => {
         {/* Waze Button */}
         <button 
           onClick={openInWaze}
-          className="inline-flex items-center px-3 py-2 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100 transition duration-300 text-sm"
+          className="inline-flex items-center px-2 py-1 bg-blue-50 text-blue-600 rounded-md hover:bg-blue-100 transition duration-300 text-xs"
         >
           <svg 
-            className="w-4 h-4 mr-1" 
+            className="w-3 h-3 mr-1" 
             fill="currentColor" 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24"
@@ -193,10 +193,10 @@ const MapOptions: React.FC<{ location: OfficeLocation }> = ({ location }) => {
           href={`https://www.google.com/maps/dir/Current+Location/${location.mapCoordinates.lat},${location.mapCoordinates.lng}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center px-3 py-2 bg-yellow-50 text-yellow-700 rounded-md hover:bg-yellow-100 transition duration-300 text-sm"
+          className="inline-flex items-center px-2 py-1 bg-yellow-50 text-yellow-700 rounded-md hover:bg-yellow-100 transition duration-300 text-xs"
         >
           <svg 
-            className="w-4 h-4 mr-1" 
+            className="w-3 h-3 mr-1" 
             fill="currentColor" 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24"
@@ -267,7 +267,7 @@ const MapComponent: React.FC<{ location: OfficeLocation }> = ({ location }) => {
     };
   }, [location]); // Re-run when location changes
 
-  return <div ref={mapRef} className="h-64 rounded-lg overflow-hidden"></div>;
+  return <div ref={mapRef} className="h-56 rounded-lg overflow-hidden"></div>;
 };
 
 // Leaflet CSS Import Component
@@ -291,14 +291,14 @@ const LeafletCSS: React.FC = () => {
 // FAQ Item Component
 const FAQItem: React.FC<{ faq: FAQ; isOpen: boolean; toggleFAQ: () => void }> = ({ faq, isOpen, toggleFAQ }) => {
   return (
-    <div className="border-b border-gray-200 py-4">
+    <div className="border-b border-gray-200 py-3">
       <button 
         onClick={toggleFAQ}
-        className="flex justify-between items-center w-full text-left font-medium text-gray-900 focus:outline-none"
+        className="flex justify-between items-center w-full text-left font-medium text-gray-900 focus:outline-none text-sm"
       >
         <span>{faq.question}</span>
         <svg 
-          className={`w-5 h-5 text-gray-500 transform ${isOpen ? 'rotate-180' : ''}`} 
+          className={`w-4 h-4 text-gray-500 transform ${isOpen ? 'rotate-180' : ''}`} 
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24" 
@@ -308,7 +308,7 @@ const FAQItem: React.FC<{ faq: FAQ; isOpen: boolean; toggleFAQ: () => void }> = 
         </svg>
       </button>
       {isOpen && (
-        <div className="mt-2 text-gray-600">
+        <div className="mt-2 text-gray-600 text-xs sm:text-sm">
           <p>{faq.answer}</p>
         </div>
       )}
@@ -336,51 +336,44 @@ const ContactUsPage: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
-// Changes to add to ContactUsPage component in paste.txt
-// Replace the handleSubmit function with this:
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      // Send the form data to your backend endpoint
+      const response = await fetch('https://missionsys-backend.onrender.com/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          // Send to office email
+          emailTo: currentLocation.email
+        }),
+      });
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  
-  try {
-    // Send the form data to your backend endpoint
-    const response = await fetch('https://missionsys-backend.onrender.com/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        ...formData,
-        // Send to office email
-        emailTo: currentLocation.email
-      }),
-    });
-
-    if (response.ok) {
-      console.log('Message sent successfully');
-      setFormData(
-{
-    name: '',
-    email: '',
-    phone: '',
-    travelDate: '',
-    partySize: '',
-    safariType: '',
-    message: ''
-  }
-
-      )
-      setFormSubmitted(true);
-    } else {
-      console.error('Failed to send message');
-      alert('Failed to send message. Please try again later.');
+      if (response.ok) {
+        console.log('Message sent successfully');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          travelDate: '',
+          partySize: '',
+          safariType: '',
+          message: ''
+        });
+        setFormSubmitted(true);
+      } else {
+        console.error('Failed to send message');
+        alert('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
     }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    alert('An error occurred. Please try again later.');
-  }
-};
+  };
 
   // Toggle FAQ open/closed state
   const toggleFAQ = (index: number) => {
@@ -389,8 +382,6 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   // Get the currently selected location
   const currentLocation = officeLocations.find(loc => loc.id === selectedLocation) || officeLocations[0];
-  
-  // Map Options Component is defined outside now
 
   return (
     <div>
@@ -398,25 +389,25 @@ const handleSubmit = async (e: React.FormEvent) => {
       <TopBar />
       <Navigation />
       
-      <div className="mx-auto px-4 py-12 pt-4">
+      <div className="mx-auto px-2 sm:px-4 py-6 sm:py-8">
         {/* Hero Section */}
-        <div className="text-center bg-[rgba(100,222,102,0.2)] p-6 rounded-sm mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <div className="text-center bg-[rgba(100,222,102,0.2)] p-4 sm:p-6 rounded-sm mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">Contact Us</h1>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             Have questions about our safaris? Ready to book your adventure? Our team is here to help you plan the perfect Kenyan safari experience.
           </p>
         </div>
 
         {/* Contact Form and Info Section */}
-        <div className="lg:flex gap-8 mb-16">
+        <div className="lg:flex gap-6 mb-8 sm:mb-12">
           {/* Contact Form */}
-          <div className="lg:w-7/12 mb-8 lg:mb-0">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+          <div className="lg:w-7/12 mb-6 lg:mb-0">
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 mb-2">Full Name *</label>
+                    <label htmlFor="name" className="block text-gray-700 text-sm mb-1">Full Name *</label>
                     <input
                       type="text"
                       id="name"
@@ -424,11 +415,11 @@ const handleSubmit = async (e: React.FormEvent) => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 mb-2">Email Address *</label>
+                    <label htmlFor="email" className="block text-gray-700 text-sm mb-1">Email Address *</label>
                     <input
                       type="email"
                       id="email"
@@ -436,39 +427,39 @@ const handleSubmit = async (e: React.FormEvent) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-gray-700 mb-2">Phone Number</label>
+                    <label htmlFor="phone" className="block text-gray-700 text-sm mb-1">Phone Number</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     />
                   </div>
                   <div>
-                    <label htmlFor="travelDate" className="block text-gray-700 mb-2">Planned Travel Date</label>
+                    <label htmlFor="travelDate" className="block text-gray-700 text-sm mb-1">Planned Travel Date</label>
                     <input
                       type="date"
                       id="travelDate"
                       name="travelDate"
                       value={formData.travelDate}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     />
                   </div>
                   <div>
-                    <label htmlFor="partySize" className="block text-gray-700 mb-2">Number of Travelers</label>
+                    <label htmlFor="partySize" className="block text-gray-700 text-sm mb-1">Number of Travelers</label>
                     <select
                       id="partySize"
                       name="partySize"
                       value={formData.partySize}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     >
                       <option value="">Select</option>
                       <option value="1">1 Person</option>
@@ -479,13 +470,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="safariType" className="block text-gray-700 mb-2">Interested In</label>
+                    <label htmlFor="safariType" className="block text-gray-700 text-sm mb-1">Interested In</label>
                     <select
                       id="safariType"
                       name="safariType"
                       value={formData.safariType}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                     >
                       <option value="">Select</option>
                       <option value="Luxury Safari">Luxury Safari</option>
@@ -497,21 +488,21 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </select>
                   </div>
                 </div>
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-gray-700 mb-2">Your Message *</label>
+                <div className="mb-4">
+                  <label htmlFor="message" className="block text-gray-700 text-sm mb-1">Your Message *</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    rows={4}
+                    className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   ></textarea>
                 </div>
                 <button 
                   type="submit"
-                  className="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
+                  className="w-full py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
                 >
                   Send Message
                 </button>
@@ -521,16 +512,16 @@ const handleSubmit = async (e: React.FormEvent) => {
 
           {/* Contact Information */}
           <div className="lg:w-5/12">
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Offices</h2>
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Our Offices</h2>
               
               {/* Location Tabs */}
-              <div className="flex border-b border-gray-200 mb-6">
+              <div className="flex border-b border-gray-200 mb-4">
                 {officeLocations.map(location => (
                   <button
                     key={location.id}
                     onClick={() => setSelectedLocation(location.id)}
-                    className={`py-2 px-4 font-medium ${
+                    className={`py-1 px-3 text-sm font-medium ${
                       selectedLocation === location.id 
                         ? 'text-green-600 border-b-2 border-green-600' 
                         : 'text-gray-600 hover:text-green-600'
@@ -542,9 +533,11 @@ const handleSubmit = async (e: React.FormEvent) => {
               </div>
 
               {/* Selected Location Details */}
-              <div className="mb-6">
-                <h3 className="font-bold text-lg text-gray-900 mb-2">{currentLocation.name}</h3>
-                <div className="text-gray-600 mb-4">
+              <div className="mb-4">
+                <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1">
+                  {currentLocation.name}
+                </h3>
+                <div className="text-gray-600 mb-3 text-xs sm:text-sm">
                   <p className="mb-1">{currentLocation.address}</p>
                   <p className="mb-1">Phone: {currentLocation.phone}</p>
                   <p className="mb-1">Email: {currentLocation.email}</p>
@@ -562,8 +555,10 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
 
         {/* FAQs Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center">
+            Frequently Asked Questions
+          </h2>
           <div className="max-w-3xl mx-auto">
             {faqs.map((faq, index) => (
               <FAQItem 
@@ -577,14 +572,20 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
 
         {/* Emergency Contact CTA */}
-        <div className="bg-green-50 rounded-lg p-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Need Immediate Assistance?</h2>
-          <p className="text-gray-700 mb-6">
+        <div className="bg-green-50 rounded-lg p-4 sm:p-6 text-center">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+            Need Immediate Assistance?
+          </h2>
+          <p className="text-gray-700 mb-3 sm:mb-4 text-xs sm:text-sm">
             For urgent inquiries or last-minute bookings, call our 24/7 safari hotline:
           </p>
-          <div className="text-2xl font-bold text-green-600 mb-6">‪+254 759491995‬</div>
-          <div className="text-2xl font-bold text-green-600 mb-6">‪Email:lynnietravisadventures.deals@gmail.com</div>
-          <p className="text-gray-600">
+          <div className="text-lg sm:text-xl font-bold text-green-600 mb-2 sm:mb-3">
+            ‪+254 759491995‬
+          </div>
+          <div className="text-lg sm:text-xl font-bold text-green-600 mb-2 sm:mb-3">
+            ‪Email: lynnietravisadventures.deals@gmail.com
+          </div>
+          <p className="text-gray-600 text-xs sm:text-sm">
             Our team is available around the clock to assist with emergency safari arrangements or urgent questions.
           </p>
         </div>

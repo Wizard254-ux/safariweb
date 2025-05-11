@@ -142,7 +142,7 @@ const RatingStars = ({ rating}:{rating :number}) => {
     stars.push(
       <svg 
         key={i}
-        className={`w-5 h-5 ${i <= rating ? 'text-yellow-400' : 'text-gray-300'}`}
+        className={`w-4 h-4 sm:w-5 sm:h-5 ${i <= rating ? 'text-yellow-400' : 'text-gray-300'}`}
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -168,19 +168,19 @@ const TestimonialCard = ({ testimonial, index }:{testimonial:Testimonial,index:n
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       custom={index}
-      className={`bg-white  rounded-lg shadow-lg overflow-hidden ${testimonial.featured ? 'border-2 border-yellow-400' : ''}`}
+      className={`bg-white rounded-lg shadow-lg overflow-hidden ${testimonial.featured ? 'border-2 border-yellow-400' : ''}`}
       whileHover={{ y: -10, transition: { duration: 0.3 } }}
     >
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         <motion.div 
-          className="flex items-center mb-4"
+          className="flex items-center mb-3 sm:mb-4"
           initial={{ x: -20, opacity: 0 }}
           animate={inView ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
           transition={{ delay: 0.2 }}
         >
           <div>
-            <h3 className="font-bold text-lg">{testimonial.name}</h3>
-            <p className="text-gray-600 text-sm">{testimonial.location}</p>
+            <h3 className="font-bold text-base sm:text-lg">{testimonial.name}</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">{testimonial.location}</p>
           </div>
         </motion.div>
         
@@ -193,7 +193,7 @@ const TestimonialCard = ({ testimonial, index }:{testimonial:Testimonial,index:n
         </motion.div>
         
         <motion.p 
-          className="mt-4 text-gray-700 italic"
+          className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-700 italic"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.4 }}
@@ -202,23 +202,23 @@ const TestimonialCard = ({ testimonial, index }:{testimonial:Testimonial,index:n
         </motion.p>
         
         <motion.div 
-          className="mt-4 flex justify-between items-center"
+          className="mt-3 sm:mt-4 flex justify-between items-center"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <span className="text-sm text-gray-500">{testimonial.date}</span>
-          <span className="text-sm font-medium text-green-600">{testimonial.safariExperience}</span>
+          <span className="text-xs sm:text-sm text-gray-500">{testimonial.date}</span>
+          <span className="text-xs sm:text-sm font-medium text-green-600">{testimonial.safariExperience}</span>
         </motion.div>
         
         {testimonial.featured && (
           <motion.div 
-            className="mt-3"
+            className="mt-2 sm:mt-3"
             initial={{ scale: 0 }}
             animate={inView ? { scale: 1 } : { scale: 0 }}
             transition={{ delay: 0.6, type: "spring" }}
           >
-            <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">Featured</span>
+            <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-0.5 rounded">Featured</span>
           </motion.div>
         )}
       </div>
@@ -263,16 +263,16 @@ const TestimonialsPage = () => {
       <TopBar />
       <Navigation />
       
-      <div className="max-w-7xl  mx-auto px-4 py-12 pt-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-8 sm:py-12 pt-2 sm:pt-4">
         <motion.div 
           ref={headerRef}
           variants={headerVariants}
           initial="hidden"
           animate={headerInView ? "visible" : "hidden"}
-          className="text-center bg-[rgba(100,222,102,0.2)] p-6 mb-12"
+          className="text-center bg-[rgba(100,222,102,0.2)] p-4 sm:p-6 mb-8 sm:mb-12 rounded-lg"
         >
-          <h1 className="text-4xl  font-bold text-gray-900 mb-4">Customer Testimonials</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-4">Customer Testimonials</h1>
+          <p className="text-sm sm:text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
             Read what our clients have to say about their unforgettable safari experiences in Kenya.
           </p>
         </motion.div>
@@ -283,12 +283,12 @@ const TestimonialsPage = () => {
           variants={fadeInVariants}
           initial="hidden"
           animate={filtersInView ? "visible" : "hidden"}
-          className="mb-8 flex flex-col md:flex-row justify-between items-center"
+          className="mb-6 sm:mb-8 flex flex-col md:flex-row justify-between items-center"
         >
           <div className="flex flex-wrap gap-2 mb-4 md:mb-0">
             <motion.button 
               onClick={() => setFilter('all')}
-              className={`px-4 py-2 rounded-full ${filter === 'all' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-800'}`}
+              className={`px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-full ${filter === 'all' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-800'}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -296,7 +296,7 @@ const TestimonialsPage = () => {
             </motion.button>
             <motion.button 
               onClick={() => setFilter('featured')}
-              className={`px-4 py-2 rounded-full ${filter === 'featured' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-800'}`}
+              className={`px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-full ${filter === 'featured' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-800'}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -304,7 +304,7 @@ const TestimonialsPage = () => {
             </motion.button>
             <motion.button 
               onClick={() => setFilter('five-star')}
-              className={`px-4 py-2 rounded-full ${filter === 'five-star' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-800'}`}
+              className={`px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm rounded-full ${filter === 'five-star' ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-800'}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -322,7 +322,7 @@ const TestimonialsPage = () => {
               placeholder="Search by location in Kenya..."
               value={searchLocation}
               onChange={(e) => setSearchLocation(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </motion.div>
         </motion.div>
@@ -333,7 +333,7 @@ const TestimonialsPage = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
           >
             {filteredTestimonials.map((testimonial, index) => (
               <TestimonialCard 
@@ -348,12 +348,12 @@ const TestimonialsPage = () => {
             variants={fadeInVariants}
             initial="hidden"
             animate="visible"
-            className="text-center py-12"
+            className="text-center py-8 sm:py-12"
           >
-            <p className="text-xl text-gray-600">No testimonials match your search criteria.</p>
+            <p className="text-base sm:text-xl text-gray-600">No testimonials match your search criteria.</p>
             <motion.button 
               onClick={() => {setFilter('all'); setSearchLocation('');}}
-              className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+              className="mt-3 sm:mt-4 px-3 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm bg-green-600 text-white rounded-lg hover:bg-green-700"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -368,14 +368,14 @@ const TestimonialsPage = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={ctaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.5 }}
-          className="mt-16 bg-green-50 rounded-lg p-8 text-center"
+          className="mt-10 sm:mt-16 bg-green-50 rounded-lg p-5 sm:p-8 text-center"
         >
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Share Your Safari Experience</h2>
-          <p className="text-gray-700 mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-4">Share Your Safari Experience</h2>
+          <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6">
             Have you recently enjoyed one of our safari experiences? We'd love to hear about your adventure!
           </p>
           <motion.button 
-            className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
+            className="px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300"
             whileHover={{ scale: 1.05, backgroundColor: "#166534" }}
             whileTap={{ scale: 0.95 }}
           >
