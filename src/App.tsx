@@ -1,4 +1,3 @@
-// src/App.tsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
@@ -9,15 +8,35 @@ import ContactUsPage from './Pages/ContactPage';
 import { SafariDetailsComponent } from './Pages/PackagesDetails';
 import PostDetailPage from './Pages/PostDetailsPage';
 import Spinner from './components/Spinner';
+import axios from 'axios';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading (replace with actual loading logic if needed)
+    const sendRequest = async () => {
+      try {
+        const response = await axios.get('https://missionsys-backend.onrender.com/server/on');
+        console.log(`Request sent at ${new Date().toISOString()}:`, response.status);
+      } catch (error) {
+        console.error(`Error sending request:`, error);
+      }
+    };
+
+    // Call once on mount
+    sendRequest();
+
+    // Set interval for every 13 minutes
+    const interval = setInterval(sendRequest, 13 * 60 * 1000);
+
+    // Clean up the interval on unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500); // 1.5s delay
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
