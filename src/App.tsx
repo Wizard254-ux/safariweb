@@ -16,8 +16,8 @@ const App: React.FC = () => {
   useEffect(() => {
     const sendRequest = async () => {
       try {
-        const response = await axios.get('https://missionsys-backend.onrender.com/server/on');
-        console.log(`Request sent at ${new Date().toISOString()}:`, response.status);
+        await axios.get('https://missionsys-backend.onrender.com/server/on');
+        
       } catch (error) {
         console.error(`Error sending request:`, error);
       }
