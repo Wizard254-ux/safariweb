@@ -120,7 +120,7 @@ For travelers seeking memorable safari experiences, we highly recommend Samburu 
   date: 'February 20, 2025',
   location: 'Samburu, Kenya',
   type: 'vlog',
-  thumbnail: 'https://images.pexels.com/photos/3758104/pexels-photo-3758104.jpeg',
+  thumbnail: 'https://images.pexels.com/photos/20449623/pexels-photo-20449623/free-photo-of-leopard-in-sunlight-and-shadow.jpeg?auto=compress&cs=tinysrgb&w=600',
   videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076802/krz2vffcr70ckrgirc7a.mp4',
   featured: false,
   categories: ['Wildlife', 'Samburu', 'Big Cats']
