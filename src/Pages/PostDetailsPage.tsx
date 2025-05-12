@@ -366,7 +366,6 @@ const handleCommentSubmit = async (e: React.FormEvent) => {
         )}
 
         {/* Comments Section */}
-       // Replace the comment form section in PostDetailPage.tsx with this code:
 
 {/* Comment Form */}
 <div className="bg-white rounded-lg shadow-md p-6 mb-8">

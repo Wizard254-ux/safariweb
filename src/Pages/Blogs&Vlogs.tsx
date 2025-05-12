@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 import { posts } from '../components/BlogsInterface'; // Assuming posts data is in a separate file
 
 // Interface for blog and vlog posts
@@ -32,6 +33,8 @@ const AnimatedPostCard: React.FC<{ post: Post; index: number }> = ({ post, index
     triggerOnce: true,
     threshold: 0.1,
   });
+    const navigate=useNavigate();
+
 
   const cardVariants = {
     hidden: { 
@@ -104,7 +107,7 @@ const AnimatedPostCard: React.FC<{ post: Post; index: number }> = ({ post, index
         )}
         <div className="mt-6">
           <button 
-            onClick={() => handlePostClick(post)}
+            onClick={() =>  navigate(`/posts/${post.id}`)}
             className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition duration-300 inline-block"
           >
             {post.type === 'blog' ? 'Read More' : 'Watch Video'}
@@ -116,14 +119,16 @@ const AnimatedPostCard: React.FC<{ post: Post; index: number }> = ({ post, index
 };
 
 // Function to handle post clicks (replace react-router navigation)
-const handlePostClick = (post: Post) => {
-  // Store the selected post in localStorage or state management
-  localStorage.setItem('selectedPost', JSON.stringify(post));
-  // Navigate programmatically without react-router
-  window.location.href = `/posts/${post.id}`;
-  // Alternatively, you could use a state management approach to show the post detail
-  // within the same page without navigation
-};
+// const handlePostClick = (post: Post) => {
+//   const navigate=useNavigate();
+//   // Store the selected post in localStorage or state management
+//   localStorage.setItem('selectedPost', JSON.stringify(post));
+//   // Navigate programmatically without react-router
+//   // window.location.href = `/posts/${post.id}`;
+//   navigate(`/posts/${post.id}`)
+//   // Alternatively, you could use a state management approach to show the post detail
+//   // within the same page without navigation
+// };
 
 // Featured Post Component with Animation
 const FeaturedPost: React.FC<{ post: Post; index: number }> = ({ post, index }) => {
@@ -131,6 +136,7 @@ const FeaturedPost: React.FC<{ post: Post; index: number }> = ({ post, index }) 
     triggerOnce: true,
     threshold: 0.1,
   });
+  const navigate=useNavigate();
 
   const featuredVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -199,7 +205,7 @@ const FeaturedPost: React.FC<{ post: Post; index: number }> = ({ post, index }) 
             ))}
           </div>
           <button 
-            onClick={() => handlePostClick(post)}
+            onClick={() => navigate(`/posts/${post.id}`)}
             className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300 inline-block"
           >
             {post.type === 'blog' ? 'Read Full Article' : 'Watch Full Video'}

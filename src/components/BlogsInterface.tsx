@@ -61,7 +61,7 @@ export interface Post {
       location: 'Amboseli, Kenya',
       type: 'vlog',
       thumbnail: 'https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg',
-      videoUrl: 'https://www.youtube.com/watch?v=ZWVxNnX8fwA',
+      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076723/i94wn4kkvo0yeqd3mgoc.mp4',
       featured: true,
       categories: ['Big Cats', 'Amboseli', 'Wildlife']
     },
@@ -95,34 +95,36 @@ export interface Post {
       featured: false,
       categories: ['Accommodation', 'Luxury', 'Eco-Tourism']
     },
-    {
-      id: 'post-4',
-      title: 'Samburu Cultural Experience: Beyond Wildlife',
-      excerpt: 'Immerse yourself in the rich cultural heritage of the Samburu people alongside incredible wildlife sightings.',
-      content: `<p>While Kenya's wildlife is world-renowned, the cultural experiences are equally enriching. During our recent expedition to Samburu National Reserve in northern Kenya, we had the privilege of spending time with the Samburu people, close relatives of the Maasai who maintain their distinctive traditions in this remote and beautiful landscape.</p>
-  
-      <p>The Samburu are semi-nomadic pastoralists whose lives revolve around their cattle, camels, and goats. Unlike many indigenous cultures that have been significantly altered by modernization, the Samburu have managed to preserve much of their traditional way of life while selectively incorporating beneficial aspects of contemporary society.</p>
-      
-      <p>Our journey began with a visit to a traditional Samburu village, where we were greeted with vibrant songs and the famous "jumping dance" performed by the morans (warriors). The colorful beaded jewelry and bright red attire create a stunning contrast against the arid landscape. Each intricate beadwork pattern tells a story of age, social status, and personal achievement.</p>
-      
-      <p>What made our experience particularly special was the opportunity to participate in daily activities rather than simply observing. Under the guidance of Samburu women, we learned techniques for beadwork that have been passed down through generations. The precision and patience required gave us a new appreciation for the stunning ornaments that are such an integral part of Samburu identity.</p>
-      
-      <p>Perhaps the most enlightening aspect of our cultural immersion was learning about the Samburu's profound knowledge of the local ecosystem. Our guide, Lentorre, a Samburu elder, identified dozens of plants and explained their medicinal and practical uses. This traditional ecological knowledge represents centuries of careful observation and adaptation to this challenging environment.</p>
-      
-      <p>The wildlife aspect of our safari was enhanced by the Samburu trackers who accompanied us. Their ability to spot and interpret animal signs allowed us to witness rare species like the reticulated giraffe, Grevy's zebra, and the gerenuk - the distinctive long-necked antelope that feeds while standing on its hind legs.</p>
-      
-      <p>In the evening, gathered around a campfire under the vast African sky, we listened to ancient Samburu myths and legends. These stories, often featuring animals that we had observed during the day, revealed the deep spiritual connection between the Samburu people and their natural environment.</p>
-      
-      <p>For travelers seeking a more meaningful safari experience, we highly recommend incorporating cultural interactions like these. The most rewarding experiences come through responsible tourism initiatives that ensure benefits flow directly to local communities while helping preserve their cultural heritage.</p>`,
-      author: 'Lisa Akinyi',
-      date: 'February 20, 2025',
-      location: 'Samburu, Kenya',
-      type: 'vlog',
-      thumbnail: 'https://images.pexels.com/photos/3758104/pexels-photo-3758104.jpeg',
-      videoUrl: 'https://www.youtube.com/watch?v=D3BeKr9TLuk',
-      featured: false,
-      categories: ['Culture', 'Samburu', 'Local Experience']
-    },
+{
+  id: 'post-4',
+  title: 'Elusive Leopards of Samburu: A Rare Encounter',
+  excerpt: 'Witness the mesmerizing stealth and beauty of leopards against the stunning backdrop of Samburu National Reserve.',
+  content: `
+While Kenya offers incredible wildlife diversity, few experiences compare to encountering the elusive leopard in its natural habitat. During our recent expedition to Samburu National Reserve in northern Kenya, we were blessed with multiple sightings of these magnificent cats, each encounter more breathtaking than the last.
+
+Leopards are among Africa's most secretive big cats, masters of camouflage who prefer solitary lives in the shadows. Unlike lions that roam the plains in prides or cheetahs that hunt in daylight, leopards thrive in invisibility, making each sighting particularly special. Samburu's unique landscape of acacia woodlands, riverine forests, and rocky outcrops provides the perfect habitat for these spotted predators.
+
+Our journey began at dawn when our guide, Lentorre, received word of a female leopard sighting near the Ewaso Ng'iro river. As we approached, we spotted her gracefully draped across the branch of an acacia tree, her spotted coat blending seamlessly with the dappled sunlight filtering through the leaves. Her powerful, compact body and intense gaze revealed why leopards have long been revered as symbols of power and mystery across African cultures.
+
+What made our experience particularly special was witnessing hunting behavior rather than simply observing a resting cat. As the afternoon cooled, we watched in hushed awe as the leopard descended from her arboreal perch with liquid grace, her movements calculated and deliberate. The precision and patience displayed as she stalked an unsuspecting impala gave us new appreciation for these apex predators and their remarkable hunting abilities.
+
+Perhaps the most enlightening aspect of our leopard encounters was learning about their ecological role from our Samburu guide. Leopards help maintain healthy prey populations by targeting weak or sick animals. Their ability to hoist kills into trees prevents scavenging by other predators, creating a unique ecological niche. This traditional knowledge represented centuries of careful observation by the Samburu people who share this landscape with these magnificent cats.
+
+The wildlife experience was enhanced by the Samburu trackers who accompanied us. Their ability to spot and interpret signs allowed us to witness not only leopards but other rare species like the reticulated giraffe, Grevy's zebra, and the gerenuk - the distinctive long-necked antelope that feeds while standing on its hind legs.
+
+In the evening, gathered around a campfire under the vast African sky, we reflected on our leopard encounters while listening to ancient Samburu myths and legends. These stories, featuring the leopard as a central character, revealed the deep respect local communities have for these beautiful yet formidable creatures.
+
+For travelers seeking memorable safari experiences, we highly recommend Samburu for leopard sightings. The most rewarding experiences come through patience and respect for these animals' space, allowing them to reveal themselves naturally while appreciating their critical role in this delicate ecosystem.
+`,
+  author: 'Lisa Akinyi',
+  date: 'February 20, 2025',
+  location: 'Samburu, Kenya',
+  type: 'vlog',
+  thumbnail: 'https://images.pexels.com/photos/3758104/pexels-photo-3758104.jpeg',
+  videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076802/krz2vffcr70ckrgirc7a.mp4',
+  featured: false,
+  categories: ['Wildlife', 'Samburu', 'Big Cats']
+},
     {
       id: 'post-5',
       title: 'Photography Tips for Your Kenyan Safari',
@@ -185,7 +187,7 @@ export interface Post {
       location: 'Tsavo, Kenya',
       type: 'vlog',
       thumbnail: 'https://images.pexels.com/photos/1054655/pexels-photo-1054655.jpeg',
-      videoUrl: 'https://www.youtube.com/watch?v=KjVXEy7Q6Ak',
+      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076846/buhmnokcfkaajb7fyzte.mp4',
       featured: true,
       categories: ['Conservation', 'Elephants', 'Tsavo']
     }

@@ -314,7 +314,83 @@ export const safariPackages: SafariPackage[] = [
     exclusions: [
       'Balloon safari with bush breakfast (USD 580 per guest)'
     ]
-  }
+  },
+  {
+  id: 'jw-marriott-safari',
+  title: 'JW Marriott Masai Mara Lodge Luxury Safari',
+  duration: '3 Days',
+  location: 'Maasai Mara',
+  price: 'From $2,010 per person',
+  image: '/jw-marriott.png',
+  description: 'Experience a luxury African safari at JW Marriott Masai Mara Lodge. Enjoy luxurious tented suites overlooking the Talek river, each with their own private outdoor jacuzzi tub and deck. This premium flying package includes full board accommodation, game drives, and exclusive activities. Valid from January to July 5th, 2025. Residents: Single $2,580, Sharing $2,010. Non-Residents: Single $3,580, Sharing $3,080.',
+  accommodations: [
+    'JW Marriott Masai Mara Lodge – Luxury tented suites with private outdoor jacuzzi'
+  ],
+  itinerary: [
+    {
+      day: 'Day 1',
+      title: 'Arrival at Maasai Mara',
+      activities: [
+        'Arrival at Keekorok airstrip',
+        'Transfer to JW Marriott Masai Mara Lodge',
+        'Lunch at the lodge',
+        'Afternoon game drive with refreshments',
+        'Dinner at the lodge'
+      ],
+      accommodation: 'JW Marriott Masai Mara Lodge',
+      meals: 'Lunch, Dinner'
+    },
+    {
+      day: 'Day 2',
+      title: 'Full Day at Maasai Mara',
+      activities: [
+        'Morning game drive with refreshments',
+        'Bush meal (breakfast or lunch – weather permitting)',
+        'Leisure time at the lodge',
+        'Afternoon game drive with refreshments',
+        'Sundowners – weather permitting',
+        'Dinner at the lodge'
+      ],
+      accommodation: 'JW Marriott Masai Mara Lodge',
+      meals: 'Breakfast, Lunch, Dinner'
+    },
+    {
+      day: 'Day 3',
+      title: 'Departure Day',
+      activities: [
+        'Morning game drive with refreshments',
+        'Breakfast at the lodge',
+        'Check-out and transfer to Keekorok airstrip',
+        'Departure flight'
+      ],
+      accommodation: '',
+      meals: 'Breakfast'
+    }
+  ],
+  inclusions: [
+    '2 Nights Accommodation & Meals on Full Board Basis',
+    'Select alcoholic and non-alcoholic beverages (except premium drinks)',
+    'Bush meals; breakfast or lunch – weather permitting (once during your stay)',
+    'Sundowners – weather permitting (once during your stay)',
+    'Two shared game drives per day including refreshments',
+    'A pair of Vortex Viper binoculars in the room for use',
+    'Return airstrip transfers from Keekorok airstrip',
+    'Use of the gym and pool, photo studio and experience center',
+    'Boules, tree planting, bead making, spear throwing, and archery activities on property',
+    'Guided walking tours within the property',
+    'Laundry services - 5 items per person per day',
+    'Emergency Medical Evacuation Services',
+    'All statutory taxes'
+  ],
+  exclusions: [
+    'Flight to and from Maasai Mara',
+    'Champagne, premium wines and spirits',
+    'Masai Mara Park entrance fee',
+    'Spa treatments',
+    'Items of personal nature',
+    'Gratuities'
+  ]
+}
 ];
 
 export const SafariPackagesComponent = () => {
