@@ -16,7 +16,7 @@ const BeachExcursions = lazy(() => import('../components/services/BeachExcursion
 const CulturalSafaris = lazy(() => import('../components/services/CulturalSafaris').then(module => ({ default: module.CulturalSafaris })));
 const SafariPackagesComponent = lazy(() => import('../components/SafariPackages').then(module => ({ default: module.SafariPackagesComponent })));
 const ServiceCarousel = lazy(() => import('../components/ServiceCarousel').then(module => ({ default: module.ServiceCarousel })));
-const AboutUs = lazy(() => import('../components/AboutUs'));
+// const AboutUs = lazy(() => import('../components/AboutUs'));
 
 const HomePage: React.FC = () => {
   // Get active tab from localStorage with fallback and state
@@ -57,8 +57,8 @@ const HomePage: React.FC = () => {
         return <AirSafaris />;
       case 'Travel-Packages':
         return <SafariPackagesComponent />;
-      default:
-        return <AboutUs />;
+      // default:
+      //   return <AboutUs />;
     }
   };
 
@@ -97,7 +97,7 @@ const HomePage: React.FC = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <AboutUs/>
+      {/* <AboutUs/> */}
       <Footer />
     </div>
   );

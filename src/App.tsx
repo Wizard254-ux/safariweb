@@ -4,8 +4,9 @@ import HomePage from './Pages/HomePage';
 import DetailsPage from './Pages/DetailsPage';
 import TestimonialsPage from './Pages/Testimonials';
 import VlogAndBlogsPage from './Pages/Blogs&Vlogs';
-import ContactUsPage from './Pages/ContactPage';
 import { SafariDetailsComponent } from './Pages/PackagesDetails';
+import ContactUsPage from './Pages/ContactPage';
+import AboutUs from './Pages/AboutUsPage';
 import PostDetailPage from './Pages/PostDetailsPage';
 import Spinner from './components/Spinner';
 import axios from 'axios';
@@ -49,8 +50,9 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/bloga&vlogs" element={<VlogAndBlogsPage />} />
+        <Route path="/AboutUsPage" element={<AboutUs />} />
+        <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/details/:id/:category" element={<DetailsPage />} />
         <Route path="/posts/:postId" element={<PostDetailPage />} />

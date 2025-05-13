@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -116,15 +116,38 @@ const Footer = () => {
           </div>
           
           <div className="flex space-x-3">
-            <a href="#" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
+            <a href="https://www.facebook.com/lynnietravis19820?mibextid=ZbWKwL" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
               <Facebook size={16} />
             </a>
-            <a href="#" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
+            <a href="https://www.instagram.com/lynnietravis_adventures/profilecard/?igsh=MWV6NzBmZ2Fqcm51OQ==" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
               <Instagram size={16} />
             </a>
-            <a href="#" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
+            {/* <a href="" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
               <Twitter size={16} />
+            </a> */}
+            <a href="https://youtube.com/@lynnietravisadventures20travel?si=0YvCcqJmNSGtscMA" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
+              <Youtube size={16} />
             </a>
+              <a href="https://vm.tiktok.com/ZMSegAP9j/" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+        </svg>
+      </a>
+      <a href="https://whatsapp.com/channel/0029VbATYBSHVvTfnqy1Xj1U" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+          <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z" />
+          <path d="M13.5 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1z" />
+          <path d="M9 13.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5z" />
+        </svg>
+      </a>
+       <a href="https://www.linkedin.com/in/your-profile" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
           </div>
         </div>
       </div>

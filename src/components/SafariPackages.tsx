@@ -321,7 +321,7 @@ export const safariPackages: SafariPackage[] = [
   duration: '3 Days',
   location: 'Maasai Mara',
   price: 'From $2,010 per person',
-  image: '/jw-marriott.png',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747116511/Hippos_bgqusv.jpg',
   description: 'Experience a luxury African safari at JW Marriott Masai Mara Lodge. Enjoy luxurious tented suites overlooking the Talek river, each with their own private outdoor jacuzzi tub and deck. This premium flying package includes full board accommodation, game drives, and exclusive activities. Valid from January to July 5th, 2025. Residents: Single $2,580, Sharing $2,010. Non-Residents: Single $3,580, Sharing $3,080.',
   accommodations: [
     'JW Marriott Masai Mara Lodge – Luxury tented suites with private outdoor jacuzzi'
@@ -389,6 +389,351 @@ export const safariPackages: SafariPackage[] = [
     'Spa treatments',
     'Items of personal nature',
     'Gratuities'
+  ]
+},
+{
+  "id": "cape-town-getaway",
+  "title": "5-Day Cape Town Getaway",
+  "duration": "5 Days, 4 Nights",
+  "location": "Cape Town, South Africa",
+  "price": "From $1,950 per person",
+  "image": "https://images.pexels.com/photos/9385207/pexels-photo-9385207.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "description": "Experience the beauty and vibrance of Cape Town with our comprehensive 5-day getaway. From the iconic Table Mountain to the stunning Cape Peninsula and renowned wine regions, this tour offers a perfect introduction to one of Africa's most captivating cities.",
+  "accommodations": [
+    "Selected hotel accommodations in Cape Town (4 nights)"
+  ],
+  "itinerary": [
+    {
+      "day": "Day 1",
+      "title": "Arrival in Cape Town & Waterfront Tour",
+      "activities": [
+        "Meet at JKIA Airport for flight to Cape Town",
+        "Transfer to hotel and check-in",
+        "Afternoon at leisure",
+        "Scenic tour of the V&A Waterfront",
+        "Optional nightlife experience"
+      ],
+      "accommodation": "Hotel in Cape Town",
+      "meals": "Dinner"
+    },
+    {
+      "day": "Day 2",
+      "title": "City Tour, Table Mountain & Winelands",
+      "activities": [
+        "Comprehensive city tour including Bo-Kaap, Government Avenue, South African Museum",
+        "Table Mountain Aerial Cableway to the summit (1,067m)",
+        "Visit to Kirstenbosch National Botanical Gardens",
+        "Wine tasting in Stellenbosch or Constantia"
+      ],
+      "accommodation": "Hotel in Cape Town",
+      "meals": "Breakfast, Dinner"
+    },
+    {
+      "day": "Day 3",
+      "title": "Cape Peninsula Tour",
+      "activities": [
+        "Scenic drive along the coast through Hout Bay and Chapman's Peak Drive",
+        "Visit Cape Point and the Cape of Good Hope",
+        "Light lunch in Simon's Town",
+        "Visit the Penguin Colony at Boulders Beach",
+        "Evening at leisure or optional nightlife"
+      ],
+      "accommodation": "Hotel in Cape Town",
+      "meals": "Breakfast, Lunch"
+    },
+    {
+      "day": "Day 4",
+      "title": "Beach Day & Shopping",
+      "activities": [
+        "Free day at leisure",
+        "Optional beach visit or shopping",
+        "Optional sunset cruise"
+      ],
+      "accommodation": "Hotel in Cape Town",
+      "meals": "Breakfast"
+    },
+    {
+      "day": "Day 5",
+      "title": "Departure",
+      "activities": [
+        "Check-out from hotel",
+        "Transfer to the airport for return flight to Nairobi"
+      ],
+      "accommodation": "",
+      "meals": "Breakfast"
+    }
+  ],
+  "inclusions": [
+    "Return flight tickets",
+    "4 nights accommodation",
+    "All transfers",
+    "Daily breakfast",
+    "All entry fees",
+    "Table Mountain cable car tickets",
+    "Waterfront tour",
+    "Sunset cruise",
+    "Hop-on Hop-off Red Bus ticket",
+    "Cape Peninsula tour (Cape Point, Cape of Good Hope, Hout Bay, Penguin Colony)",
+    "Kirstenbosch Botanical Garden visit",
+    "Wine tasting tour (Constantia/Stellenbosch)",
+    "Guided tour",
+    "Photography package (for groups of 15+ people)",
+    "minimum of 2 travellers"
+  ],
+  "exclusions": [
+    "Lunch and drinks (except where specified)",
+    "Personal items",
+    "Optional nightlife expenses"
+  ],
+},
+{
+  "id": "mid-luxury-south-africa",
+  "title": "6-Day Mid-Luxury South Africa Experience",
+  "duration": "6 Days, 5 Nights",
+  "location": "Cape Town & Greater Kruger",
+  "price": "From $3,980 per person",
+  "image": "https://images.pexels.com/photos/6790327/pexels-photo-6790327.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "description": "Experience the perfect balance of elegance and value with our Mid-Luxury South Africa itinerary. Enjoy stylish accommodations in Cape Town, guided tours of iconic landmarks, and an unforgettable Big 5 safari in the Greater Kruger area.",
+  "accommodations": [
+    "4-5 star hotel in Cape Town (Radisson Blu Hotel Waterfront, Cape Cadogan Boutique Hotel, or Pepperclub Hotel & Spa)",
+    "Mid-luxury safari lodge in Greater Kruger (Arathusa Safari Lodge, Kambaku Safari Lodge, or Kapama River Lodge)"
+  ],
+  "itinerary": [
+    {
+      "day": "Day 1",
+      "title": "Arrival in Cape Town",
+      "activities": [
+        "Transfer to a centrally located, upscale hotel",
+        "Evening: Sunset at Signal Hill or V&A Waterfront dinner"
+      ],
+      "accommodation": "4-5 star hotel in Cape Town",
+      "meals": "Dinner"
+    },
+    {
+      "day": "Day 2",
+      "title": "Cape Peninsula Guided Tour",
+      "activities": [
+        "Full-day tour with a private or small-group guide",
+        "Visit Hout Bay (optional Seal Island cruise)",
+        "Scenic drive along Chapman's Peak Drive",
+        "Explore Cape Point & Cape of Good Hope",
+        "Visit Boulders Beach to see African penguins",
+        "Lunch at Harbour House Kalk Bay or Two Oceans Restaurant"
+      ],
+      "accommodation": "4-5 star hotel in Cape Town",
+      "meals": "Breakfast, Lunch"
+    },
+    {
+      "day": "Day 3",
+      "title": "Table Mountain + City Tour",
+      "activities": [
+        "Morning cable car to Table Mountain",
+        "Explore Bo-Kaap, Company's Garden, Greenmarket Square",
+        "Optional Robben Island tour (advance booking required)",
+        "Evening fine dining at Gold Restaurant (African experience) or Kloof Street House"
+      ],
+      "accommodation": "4-5 star hotel in Cape Town",
+      "meals": "Breakfast, Dinner"
+    },
+    {
+      "day": "Day 4",
+      "title": "Fly to Kruger – Safari Lodge Stay",
+      "activities": [
+        "Fly to Hoedspruit or Skukuza via Johannesburg",
+        "Transfer to safari lodge in Greater Kruger (Sabi Sands, Timbavati, or Kapama)",
+        "Evening game drive included"
+      ],
+      "accommodation": "Mid-luxury safari lodge in Greater Kruger",
+      "meals": "Breakfast, Dinner"
+    },
+    {
+      "day": "Day 5",
+      "title": "Full Safari Day",
+      "activities": [
+        "Early game drive: Search for the Big 5 with a ranger & tracker",
+        "Afternoon at leisure: Pool, spa, or wildlife viewing from the deck",
+        "Evening drive with sundowners in the bush"
+      ],
+      "accommodation": "Mid-luxury safari lodge in Greater Kruger",
+      "meals": "Breakfast, Lunch, Dinner"
+    },
+    {
+      "day": "Day 6",
+      "title": "Departure",
+      "activities": [
+        "Morning drive or bush breakfast",
+        "Transfer to airport for flight to Johannesburg, then onward"
+      ],
+      "accommodation": "",
+      "meals": "Breakfast"
+    }
+  ],
+  "inclusions": [
+    "5 nights accommodation (3 nights Cape Town, 2 nights safari lodge)",
+    "Daily breakfast",
+    "Most meals at safari lodges",
+    "All guided tours mentioned in the itinerary",
+    "All transfers",
+    "Game drives with professional rangers and trackers",
+    "Domestic flights (Cape Town to Kruger area)"
+  ],
+  "exclusions": [
+    "International airfare",
+    "Travel insurance",
+    "Optional activities not mentioned in the itinerary",
+    "Meals not specified",
+    "Gratuities",
+    "Personal expenses"
+  ]
+},
+{
+  "id": "half-day-nairobi-park-safari",
+  "title": "Half-Day Nairobi National Park Safari",
+  "duration": "5 Hours",
+  "location": "Nairobi, Kenya",
+  "price": "From $540 per person, $310 per person sharing",
+  "image": "https://res.cloudinary.com/dancxhgah/image/upload/v1747115924/Nairobi_Park_dccbif.jpg",
+  "description": "Experience the only national park within a city in the entire world. Located just a stone's throw away from Nairobi's urban center, this unique safari allows you to witness the beauty of African wildlife against the backdrop of a metropolitan skyline. In just a few hours, you'll explore the diverse ecosystems of Nairobi National Park, home to a variety of iconic African species, including lions, giraffes, zebras, and rhinos.",
+  "accommodations": [],
+  "itinerary": [
+    {
+      "day": "Day 1",
+      "title": "Game Drive & Lunch",
+      "activities": [
+        "0700hrs: Pick up within Nairobi city or from your hotel",
+        "0800hrs - 1200hrs: Game drive in Nairobi National Park",
+        "1230hrs - 1400hrs: Lunch",
+        "Return to Nairobi"
+      ],
+      "accommodation": "",
+      "meals": "Lunch"
+    }
+  ],
+  "inclusions": [
+    "Transport in 4×4 Land Cruiser",
+    "Services of a professional English-speaking driver tour guide",
+    "Park entrance fees",
+    "Pick up and drop off within Nairobi",
+    "Lunch",
+    "Drinking water"
+  ],
+  "exclusions": [
+    "Tips",
+    "Personal items",
+    "Any activities not mentioned in the itinerary"
+  ]
+},
+{
+  "id": "luxury-south-africa-tour",
+  "title": "Luxury 6 Days South Africa Safari & Cape Town Experience",
+  "duration": "6 Days",
+  "location": "Cape Town & Kruger Region",
+  "price": "From $19,280 per person",
+  "image": "https://images.pexels.com/photos/18886767/pexels-photo-18886767/free-photo-of-tropical-resort-in-egypt-in-the-evening.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "description": "Experience the ultimate in South African luxury with this exclusive 6-day journey combining cosmopolitan Cape Town with an unforgettable private safari. Enjoy VIP services throughout, from helicopter tours over Cape Peninsula to private game drives in premier safari lodges. This premium package includes luxury accommodations, fine dining experiences, and exclusive activities designed for the discerning traveler seeking an unparalleled African adventure. Valid throughout 2025.",
+  "accommodations": [
+    "The Silo Hotel or Ellerman House - Ultra-luxury boutique hotel in Cape Town",
+    "Royal Malewane, Singita, or Cheetah Plains - Exclusive private safari lodge"
+  ],
+  "itinerary": [
+    {
+      "day": "Day 1",
+      "title": "Arrival in Cape Town – Opulent Welcome",
+      "activities": [
+        "VIP arrival service at Cape Town International Airport",
+        "Private transfer to luxury hotel",
+        "Time to settle in and refresh",
+        "Private sunset yacht cruise with champagne from the V&A Marina"
+      ],
+      "accommodation": "5-star boutique hotel in Cape Town",
+      "meals": "Welcome Dinner"
+    },
+    {
+      "day": "Day 2",
+      "title": "Exclusive Cape Peninsula Helicopter & Chauffeur Tour",
+      "activities": [
+        "Private helicopter ride over the peninsula to Cape Point",
+        "Private chauffeured tour of Boulders Beach and Cape of Good Hope",
+        "Scenic drive along Chapman's Peak",
+        "Chef's Table experience at a coastal fine-dining restaurant like La Colombe"
+      ],
+      "accommodation": "5-star boutique hotel in Cape Town",
+      "meals": "Breakfast, Lunch, Dinner"
+    },
+    {
+      "day": "Day 3",
+      "title": "Table Mountain, Art, Wine & Culture",
+      "activities": [
+        "Private Table Mountain cable car experience (first class tickets)",
+        "Curated art & culture tour of Zeitz MOCAA",
+        "Visit to Bo-Kaap and Kirstenbosch Gardens",
+        "6-course wine pairing dinner at Greenhouse or FYN"
+      ],
+      "accommodation": "5-star boutique hotel in Cape Town",
+      "meals": "Breakfast, Lunch, Dinner"
+    },
+    {
+      "day": "Day 4",
+      "title": "Fly to Private Safari Lodge – Kruger Region",
+      "activities": [
+        "Charter flight to private airstrip near lodge",
+        "Welcome and orientation at safari lodge",
+        "Time to settle in and explore lodge facilities",
+        "Private sunset game drive with sundowners"
+      ],
+      "accommodation": "Luxury Safari Lodge",
+      "meals": "Breakfast, Lunch, Dinner"
+    },
+    {
+      "day": "Day 5",
+      "title": "Full-Day Luxury Safari Experience",
+      "activities": [
+        "Morning private safari with expert tracker (Big 5 sightings)",
+        "Midday spa treatment, private plunge pool, or fine dining lunch",
+        "Afternoon private game drive",
+        "Exclusive bush dinner or wine tasting in the wild"
+      ],
+      "accommodation": "Luxury Safari Lodge",
+      "meals": "Breakfast, Lunch, Dinner"
+    },
+    {
+      "day": "Day 6",
+      "title": "Departure Day",
+      "activities": [
+        "Optional morning game drive or breakfast in the bush",
+        "Luxury transfer to airport for return flight to Johannesburg or Cape Town",
+        "VIP lounge access before international departure"
+      ],
+      "accommodation": "",
+      "meals": "Breakfast"
+    }
+  ],
+  "inclusions": [
+    "5 Nights Luxury Accommodation (3 nights Cape Town, 2 nights Safari Lodge)",
+    "All meals as specified in the itinerary",
+    "Private concierge service throughout the trip",
+    "VIP arrival and departure services",
+    "Private sunset yacht cruise in Cape Town",
+    "Private helicopter tour of Cape Peninsula",
+    "Private chauffeured tours in Cape Town",
+    "First class Table Mountain cable car tickets",
+    "Charter flights between Cape Town and safari lodge",
+    "Private game drives with expert guides and trackers",
+    "Premium wines and beverages during meals",
+    "Exclusive bush dinner experience",
+    "Spa treatment at safari lodge",
+    "All park and conservation fees",
+    "All transfers in luxury vehicles",
+    "24/7 emergency support"
+  ],
+  "exclusions": [
+    "International flights to and from South Africa",
+    "Premium champagnes and spirits (unless specified)",
+    "Travel insurance",
+    "Personal shopping and souvenirs",
+    "Additional activities not mentioned in the itinerary",
+    "Gratuities for guides, drivers and lodge staff (recommended)",
+    "Visa fees if applicable"
   ]
 }
 ];

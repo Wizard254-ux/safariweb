@@ -90,15 +90,16 @@ export const Navigation: React.FC = () => {
               Blogs & Vlogs
             </button>
 
+
             <button 
-              onClick={() => handleTabChange("contact")} 
+              onClick={() => handleTabChange("AboutUsPage")} 
               className={`p-2 rounded-sm font-medium ${
-                activePage === "contact" 
+                activePage === "AboutUsPage" 
                   ? "bg-green-100 text-green-600" 
                   : "text-gray-700 hover:text-green-600"
               }`}
             >
-              Contact
+              About Us
             </button>
 
             <button 
@@ -110,6 +111,17 @@ export const Navigation: React.FC = () => {
               }`}
             >
               Testimonials
+            </button>
+            
+            <button 
+              onClick={() => handleTabChange("contact")} 
+              className={`p-2 rounded-sm font-medium ${
+                activePage === "contact" 
+                  ? "bg-green-100 text-green-600" 
+                  : "text-gray-700 hover:text-green-600"
+              }`}
+            >
+              Contact Us
             </button>
           </div>
 
@@ -149,6 +161,16 @@ export const Navigation: React.FC = () => {
                 </button>
 
                 <button 
+                  onClick={() => handleTabChange("AboutUsPage")} 
+                  className={`p-2 rounded-sm font-medium text-left ${
+                    activePage === "bloga&vlogs" 
+                      ? "bg-green-600 text-white" 
+                      : "text-white hover:bg-green-700 hover:text-white"
+                  }`}
+                >
+                  About Us
+                </button>
+                <button 
                   onClick={() => handleTabChange("bloga&vlogs")} 
                   className={`p-2 rounded-sm font-medium text-left ${
                     activePage === "bloga&vlogs" 
@@ -167,7 +189,7 @@ export const Navigation: React.FC = () => {
                       : "text-white hover:bg-green-700 hover:text-white"
                   }`}
                 >
-                  Contact
+                  Contact Us
                 </button>
               </div>
             </div>
@@ -177,6 +199,7 @@ export const Navigation: React.FC = () => {
                 Book Now
               </button>
             </div>
+         
           </div>
           
           {/* Overlay when sidebar is open */}
