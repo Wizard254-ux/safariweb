@@ -236,6 +236,10 @@ const TestimonialsPage = () => {
   const [headerRef, headerInView] = useInView({ triggerOnce: true });
   const [filtersRef, filtersInView] = useInView({ triggerOnce: true });
   const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.3 });
+  
+   useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
   // Handle client-side rendering for animations
   useEffect(() => {

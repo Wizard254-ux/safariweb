@@ -330,6 +330,10 @@ const ContactUsPage: React.FC = () => {
     message: ''
   });
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   // Handle form input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;

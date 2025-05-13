@@ -3,10 +3,13 @@ import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-
+import { useEffect } from 'react';
 
 export const AboutUs = () => {
     const navigate=useNavigate()
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   // Animation variants
   const sectionVariant = {
     hidden: { opacity: 0, y: 20 },

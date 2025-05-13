@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Navigation } from '../components/Navigation';
@@ -222,6 +222,9 @@ const VlogAndBlogsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [sort, setSort] = useState<SortOption>('latest');
   
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   // Section animations
   const sectionVariants = {
     hidden: { opacity: 0 },
