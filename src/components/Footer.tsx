@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -123,7 +123,7 @@ const Footer = () => {
               <Instagram size={16} />
             </a>
             {/* <a href="" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
-              <Twitter size={16} />
+             size={16} />
             </a> */}
             <a href="https://youtube.com/@lynnietravisadventures20travel?si=0YvCcqJmNSGtscMA" className="bg-green-700 p-1.5 rounded-full hover:bg-green-600 transition duration-200">
               <Youtube size={16} />
