@@ -1,6 +1,8 @@
 import { Facebook, Instagram, Mail, Phone, MapPin, Youtube } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate=useNavigate()
   return (
     <footer className="bg-green-800 text-white mt-8">
       <div className="max-w-7xl mx-auto px-4 py-5">
@@ -47,11 +49,11 @@ const Footer = () => {
           <div>
             <h3 className="text-base font-semibold mb-3">Information</h3>
             <ul className="space-y-1 text-sm">
-              <li><a href="#" className="hover:text-green-300 transition duration-200">About Us</a></li>
-              <li><a href="#" className="hover:text-green-300 transition duration-200">Testimonials</a></li>
-              <li><a href="#" className="hover:text-green-300 transition duration-200">Blogs & Vlogs</a></li>
-              <li><a href="#" className="hover:text-green-300 transition duration-200">Travel Tips</a></li>
-              <li><a href="#" className="hover:text-green-300 transition duration-200">FAQs</a></li>
+              <li><button onClick={()=>navigate('/')} className="hover:text-green-300 transition duration-200">Home</button></li>
+              <li><button onClick={()=>navigate('/AboutUsPage')} className="hover:text-green-300 transition duration-200">About Us</button></li>
+              <li><button onClick={()=>navigate('/testimonials')} className="hover:text-green-300 transition duration-200">Testimonials</button></li>
+              <li><button onClick={()=>navigate('/bloga&vlogs')} className="hover:text-green-300 transition duration-200">Blogs & Vlogs</button></li>
+              <li><button onClick={()=>navigate('/contact')} className="hover:text-green-300 transition duration-200">Contact Us</button></li>
             </ul>
           </div>
           
