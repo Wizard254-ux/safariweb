@@ -38,6 +38,8 @@ export interface Post {
       location: 'Maasai Mara, Kenya',
       type: 'blog',
       thumbnail: 'https://images.pexels.com/photos/1319515/pexels-photo-1319515.jpeg',
+      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076723/i94wn4kkvo0yeqd3mgoc.mp4',
+
       featured: true,
       categories: ['Wildlife', 'Maasai Mara', 'Migration']
     },
@@ -61,7 +63,7 @@ export interface Post {
       location: 'Amboseli, Kenya',
       type: 'vlog',
       thumbnail: 'https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg',
-      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076723/i94wn4kkvo0yeqd3mgoc.mp4',
+      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076846/buhmnokcfkaajb7fyzte.mp4',
       featured: true,
       categories: ['Big Cats', 'Amboseli', 'Wildlife']
     },

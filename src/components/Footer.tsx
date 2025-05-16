@@ -91,12 +91,12 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={14} className="mr-2" />
-                <span>Info@lynnietravis-adventuers.com</span>
+                <span>Info@lynnietravis-adventuers.com.com</span>
               </li>
-              <li className="flex items-center">
+              {/* <li className="flex items-center">
                 <Mail size={14} className="mr-2" />
                 <span>Hr@lynnietravisadventures.com</span>
-              </li>
+              </li> */}
               {/* <li className="flex items-center">
                 <Mail size={14} className="mr-2" />
                 <span>Ceo@lynnietravisadventures.com</span>

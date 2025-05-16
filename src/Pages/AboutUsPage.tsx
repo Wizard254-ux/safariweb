@@ -62,7 +62,7 @@ export const AboutUs = () => {
             variants={sectionVariant}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-4">Welcome to Lynnietravis Adventures</h2>
-            <h3 className="text-xl md:text-2xl font-semibold text-yellow-600 mb-4">Where Luxury Meets Discovery</h3>
+            <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-4">About Us</h2>
             <div className="w-20 h-1 bg-yellow-500 mx-auto md:mx-0 mb-5"></div>
             
             <motion.p 

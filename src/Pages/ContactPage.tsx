@@ -33,7 +33,7 @@ const officeLocations: OfficeLocation[] = [
     name: 'LYNNIE TRAVIS ADVENTURES',
     address: 'UNIAFRIC HOUSE KOINANGE STREET',
     phone: '‪+254 759491995‬',
-    email: 'lynnietravisadventures.deals@gmail.com',
+    email: 'Info@lynnietravis-adventuers.com',
     hours: 'Monday - Friday: 8:30 AM - 5:00 PM',
     mapCoordinates: {
       lat: -1.28264,
@@ -62,7 +62,7 @@ const faqs: FAQ[] = [
   },
   {
     question: 'Are your safaris suitable for children?',
-    answer: 'Many of our safaris are family-friendly and can be tailored to accommodate children. We recommend safaris for children aged 6 and above, and we can suggest specific lodges and activities that cater well to families with young children.'
+    answer: 'Our safaris are family-friendly and can be tailored to accommodate children. We recommend safaris for children aged 3 and above, and we can suggest specific lodges and activities that cater well to families with young children.'
   }
 ];
 
