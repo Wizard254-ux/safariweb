@@ -6,6 +6,7 @@ import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import { Hero } from '../components/Hero';
 import { TabNavigator } from '../components/TabNavigator';
+import OurServices from '../components/OurServices';
 import Footer from '../components/Footer';
 
 // Lazy load components
@@ -58,7 +59,7 @@ const HomePage: React.FC = () => {
   const renderActiveComponent = () => {
     switch (activeTab) {
       case 'bush-safaris':
-        return <BushSafaris />;
+        return <SafariPackagesComponent />;
       case 'sports-golf':
         return <SportsGolf />;
       case 'beach-excursions':
@@ -68,7 +69,7 @@ const HomePage: React.FC = () => {
       case 'air-safaris':
         return <AirSafaris />;
       case 'Travel-Packages':
-        return <SafariPackagesComponent />;
+        return <BushSafaris />;
       // default:
       //   return <AboutUs />;
     }
@@ -107,6 +108,7 @@ const HomePage: React.FC = () => {
               {renderActiveComponent()}
             </Suspense>
           </motion.div>
+          <OurServices/>
         </AnimatePresence>
            <motion.div 
             className="text-center md:text-left mb-16 m-4"

@@ -20,50 +20,52 @@ export interface Post {
   export const posts: Post[] = [
     {
       id: 'post-1',
-      title: 'Witnessing the Great Migration in Maasai Mara',
-      excerpt: 'Experience the breathtaking sight of wildebeest crossing the Mara River during our recent safari expedition.',
-      content: `<p>The annual Great Migration is one of nature's most spectacular events. Each year, over 1.5 million wildebeest, along with vast herds of zebras and gazelles, make the perilous journey from Tanzania's Serengeti to Kenya's Maasai Mara in search of fresh grazing.</p>
-  
-      <p>During our recent expedition, we were fortunate enough to witness the dramatic river crossing at the Mara River. The tension builds as thousands of animals gather at the riverbank, hesitant to be the first to take the plunge. When finally one brave wildebeest makes the leap, the rest follow in a chaotic rush.</p>
+      title: 'Tracking the Elusive Leopards of Maasai Mara',
+  excerpt: 'Experience the thrill of spotting one of Africa’s most elusive predators during our recent safari adventure in the Maasai Mara.',
+  content: `<p>The leopard is one of Africa’s most elusive and captivating big cats. Known for their solitary nature and remarkable stealth, leopards are masterful hunters and expert climbers, often found resting in the branches of acacia trees or hidden among the tall grasses of the Maasai Mara.</p>
+
+      <p>During our recent safari adventure, we were fortunate enough to encounter a beautiful female leopard draped across the branch of a fig tree, calmly surveying her territory. The scene was both serene and powerful — a rare moment that many safari-goers dream of witnessing.</p>
       
-      <p>The crocodiles lying in wait add another dimension of drama to this natural spectacle. These prehistoric predators have perfected their ambush techniques over millions of years, and the wildebeest must run this gauntlet as part of their ancient migratory route.</p>
+      <p>Unlike the more social lions or visible cheetahs, leopards are notoriously difficult to track. Their nocturnal habits and excellent camouflage make daytime sightings a true privilege. Our experienced guide, with over two decades of tracking expertise, led us to the sighting by reading subtle signs: fresh tracks in the dust, alarm calls from impalas, and disturbed birds overhead.</p>
       
-      <p>We positioned ourselves at a prime viewing location at dawn, following tips from our experienced guide who has tracked these migrations for over two decades. The early morning light cast a golden glow over the landscape, creating the perfect conditions for both viewing and photography.</p>
+      <p>We patiently observed as the leopard descended gracefully from the tree, her muscles rippling with every step. She moved with purpose through the underbrush, possibly in search of prey or simply patrolling her range. Every movement was a reminder of her raw strength and elegance.</p>
       
-      <p>Beyond the river crossing itself, the sheer scale of the migration transforms the Mara landscape. The plains become a moving sea of wildlife, with predators following in the wake of the herds. We observed several lion prides strategically positioning themselves to take advantage of this seasonal bounty.</p>
+      <p>The Maasai Mara is home to a healthy leopard population, thanks to its well-protected habitats and abundance of prey. However, these cats still face threats from habitat loss and human encroachment. Conservation efforts and responsible tourism are key to ensuring their continued survival in the wild.</p>
       
-      <p>For those planning to witness this remarkable event, timing is crucial. The migration reaches the Maasai Mara around July and remains until October before heading back to the Serengeti. However, climate change has been affecting these traditional patterns, making local knowledge even more valuable when planning your safari.</p>`,
+      <p>If you're planning a safari with hopes of spotting a leopard, patience and an experienced guide are your best assets. Early morning and late evening drives offer the highest chances, especially around riverine forests and rocky outcrops where leopards like to rest and hunt.</p>`,
+
       author: 'James Kimani',
       date: 'April 15, 2025',
       location: 'Maasai Mara, Kenya',
-      type: 'blog',
-      thumbnail: 'https://images.pexels.com/photos/1319515/pexels-photo-1319515.jpeg',
-      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076723/i94wn4kkvo0yeqd3mgoc.mp4',
+      type: 'vlog',
+      thumbnail: 'https://images.pexels.com/photos/20449623/pexels-photo-20449623/free-photo-of-leopard-in-sunlight-and-shadow.jpeg?auto=compress&cs=tinysrgb&w=600',
+    videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076802/krz2vffcr70ckrgirc7a.mp4',
 
       featured: true,
       categories: ['Wildlife', 'Maasai Mara', 'Migration']
     },
     {
       id: 'post-2',
-      title: 'Big Cat Encounter: Lions of Amboseli',
-      excerpt: 'Join us as we track a pride of lions across the stunning landscapes of Amboseli National Park.',
-      content: `<p>As the morning sun cast golden light across the savannah of Amboseli National Park, our safari vehicle approached a pride of lions resting under an acacia tree. With the majestic Mount Kilimanjaro creating a stunning backdrop, we were treated to an intimate glimpse into the lives of these magnificent big cats.</p>
+      title: ' Elephants of Amboseli',
+      excerpt: 'Join us as we track a pride of Elephants across the stunning landscapes of Amboseli National Park.',
+     content: `<p>As the morning sun cast golden light across the savannah of Amboseli National Park, our safari vehicle approached a majestic herd of elephants slowly making their way across the open plains. With the snow-capped peak of Mount Kilimanjaro rising in the background, we were treated to an unforgettable encounter with some of Africa’s most iconic giants.</p>
   
-      <p>The pride consisted of two adult males, displaying their impressive manes, five females, and several cubs of different ages. The interaction between the cubs was particularly fascinating, as they played and practiced hunting skills that would one day become essential for their survival.</p>
+      <p>The herd was led by an experienced matriarch, guiding several adult females and their young. Watching the calves play and interact under the watchful eyes of their mothers highlighted the strong social bonds that define elephant families. Their gentle nature and intelligence were evident in every movement and gesture.</p>
       
-      <p>Our experienced guide, who has been tracking this particular pride for several years, shared valuable insights into their behavior and social structure. We learned how the territory of this pride extends across a significant portion of the park, and how they navigate the challenges posed by the seasonal changes in their environment.</p>
+      <p>Our knowledgeable guide, who has been observing Amboseli’s elephants for years, shared fascinating stories about their individual personalities and long-distance migrations. We learned how elephants use their tusks to dig for water during dry seasons and how their movements shape the ecosystem around them.</p>
       
-      <p>The hunting strategy of lions is a marvel of natural evolution. We were fortunate enough to witness the early stages of a hunt, where the females used teamwork and stealth to close in on a small herd of gazelles. While this particular attempt was unsuccessful, it demonstrated the impressive coordination and patience these predators possess.</p>
+      <p>Amboseli is world-renowned for its elephant population, especially the large-tusked bulls that roam freely through the park. We were fortunate to see one such bull a breathtaking sight as he emerged from the dust with towering tusks and a calm, commanding presence.</p>
       
-      <p>Conservation efforts in Amboseli have helped maintain healthy lion populations, but these magnificent animals still face numerous threats across Africa. Habitat loss, human-wildlife conflict, and poaching continue to put pressure on big cat populations. Supporting local conservation initiatives is crucial for ensuring these iconic species continue to thrive in their natural habitats.</p>
+      <p>Thanks to decades of conservation work, Amboseli’s elephants are among the best-studied and most protected in Africa. However, threats such as habitat encroachment and human-wildlife conflict remain. Continued support for community-based conservation and anti-poaching efforts is essential to safeguard the future of these remarkable animals.</p>
       
-      <p>If you're planning a visit to Amboseli, early morning and late afternoon game drives offer the best opportunities for lion sightings, as these are the times when the pride is most active. Remember to maintain a respectful distance and follow your guide's instructions to ensure both your safety and the wellbeing of these wild animals.</p>`,
+      <p>If you're planning a visit to Amboseli, early morning and late afternoon game drives provide the best chances to observe elephants at their most active. Be sure to bring binoculars and a camera, and always follow your guide’s advice to ensure a safe and respectful wildlife experience.</p>`,
+
       author: 'Sarah Wanjiku',
       date: 'March 28, 2025',
       location: 'Amboseli, Kenya',
-      type: 'vlog',
-      thumbnail: 'https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg',
-      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076846/buhmnokcfkaajb7fyzte.mp4',
+      type: 'blog',
+      thumbnail: 'https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=600',
+      // videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076846/buhmnokcfkaajb7fyzte.mp4',
       featured: true,
       categories: ['Big Cats', 'Amboseli', 'Wildlife']
     },
@@ -99,31 +101,31 @@ export interface Post {
     },
 {
   id: 'post-4',
-  title: 'Elusive Leopards of Samburu: A Rare Encounter',
-  excerpt: 'Witness the mesmerizing stealth and beauty of leopards against the stunning backdrop of Samburu National Reserve.',
-  content: `
-While Kenya offers incredible wildlife diversity, few experiences compare to encountering the elusive leopard in its natural habitat. During our recent expedition to Samburu National Reserve in northern Kenya, we were blessed with multiple sightings of these magnificent cats, each encounter more breathtaking than the last.
+ title: 'Samburu: Land of Tradition and Timeless Culture',
+excerpt: 'Discover the rich cultural heritage of the Samburu people, set against the breathtaking wilderness of northern Kenya.',
+content: `
+While Kenya’s natural beauty often takes center stage, the cultural experience offered by the Samburu people is equally captivating. During our recent journey through Samburu National Reserve, we had the rare privilege of immersing ourselves in the traditions, stories, and lifestyle of one of Kenya’s most vibrant pastoralist communities.
 
-Leopards are among Africa's most secretive big cats, masters of camouflage who prefer solitary lives in the shadows. Unlike lions that roam the plains in prides or cheetahs that hunt in daylight, leopards thrive in invisibility, making each sighting particularly special. Samburu's unique landscape of acacia woodlands, riverine forests, and rocky outcrops provides the perfect habitat for these spotted predators.
+The Samburu people, closely related to the Maasai, are semi-nomadic herders who have preserved their customs and way of life for centuries. Dressed in brilliantly colored shukas and adorned with intricate beadwork, Samburu men and women display their cultural identity with pride. Every color and pattern in their beadwork holds symbolic meaning — red for bravery, blue for the sky, and green for prosperity — creating a visual language passed down through generations.
 
-Our journey began at dawn when our guide, Lentorre, received word of a female leopard sighting near the Ewaso Ng'iro river. As we approached, we spotted her gracefully draped across the branch of an acacia tree, her spotted coat blending seamlessly with the dappled sunlight filtering through the leaves. Her powerful, compact body and intense gaze revealed why leopards have long been revered as symbols of power and mystery across African cultures.
+Our cultural immersion began with a visit to a local manyatta (homestead), where we were welcomed with traditional songs and dances. The rhythmic jumping, singing, and ululations echoed across the plains, a celebration of community and heritage. Samburu warriors, or morans, demonstrated their rites of passage and shared stories of courage and survival that define their role as protectors of their people and livestock.
 
-What made our experience particularly special was witnessing hunting behavior rather than simply observing a resting cat. As the afternoon cooled, we watched in hushed awe as the leopard descended from her arboreal perch with liquid grace, her movements calculated and deliberate. The precision and patience displayed as she stalked an unsuspecting impala gave us new appreciation for these apex predators and their remarkable hunting abilities.
+We also sat down with elders who shared the oral history of the Samburu, tales of migration, conflict, and harmony with nature. These stories offered profound insights into how deeply the Samburu are connected to the land and its creatures. Their spiritual beliefs, including reverence for the god Nkai, influence daily decisions, from cattle grazing to naming ceremonies.
 
-Perhaps the most enlightening aspect of our leopard encounters was learning about their ecological role from our Samburu guide. Leopards help maintain healthy prey populations by targeting weak or sick animals. Their ability to hoist kills into trees prevents scavenging by other predators, creating a unique ecological niche. This traditional knowledge represented centuries of careful observation by the Samburu people who share this landscape with these magnificent cats.
+A highlight of our cultural exchange was learning about the Samburu diet, centered around livestock products such as milk and blood, which are consumed fresh or fermented depending on the occasion. Women demonstrated how they make traditional meals and use natural herbs for healing — practices passed down through maternal lines for generations.
 
-The wildlife experience was enhanced by the Samburu trackers who accompanied us. Their ability to spot and interpret signs allowed us to witness not only leopards but other rare species like the reticulated giraffe, Grevy's zebra, and the gerenuk - the distinctive long-necked antelope that feeds while standing on its hind legs.
+The Samburu people's harmony with their environment is evident in their role in wildlife conservation. Living alongside elephants, lions, and leopards, they act as stewards of biodiversity, blending traditional knowledge with modern conservation efforts. Initiatives such as community conservancies empower Samburu communities to protect their natural heritage while benefitting from sustainable tourism.
 
-In the evening, gathered around a campfire under the vast African sky, we reflected on our leopard encounters while listening to ancient Samburu myths and legends. These stories, featuring the leopard as a central character, revealed the deep respect local communities have for these beautiful yet formidable creatures.
+As night fell, we sat by the fire under a sky ablaze with stars, listening to ancient Samburu myths. Tales of heroic animals, ancestral spirits, and the creation of the world brought their cosmology to life. These stories not only entertained but also educated, carrying moral lessons and deep respect for life.
 
-For travelers seeking memorable safari experiences, we highly recommend Samburu for leopard sightings. The most rewarding experiences come through patience and respect for these animals' space, allowing them to reveal themselves naturally while appreciating their critical role in this delicate ecosystem.
+For travelers seeking more than wildlife sightings, Samburu offers a cultural journey into a way of life that honors the past while embracing the future. By engaging respectfully with local communities, visitors can support cultural preservation and walk away with a deeper understanding of Kenya’s diverse human heritage.
 `,
   author: 'Lisa Akinyi',
   date: 'February 20, 2025',
   location: 'Samburu, Kenya',
   type: 'vlog',
-  thumbnail: 'https://images.pexels.com/photos/20449623/pexels-photo-20449623/free-photo-of-leopard-in-sunlight-and-shadow.jpeg?auto=compress&cs=tinysrgb&w=600',
-  videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076802/krz2vffcr70ckrgirc7a.mp4',
+  thumbnail: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747539694/samburu_ekbygs.jpg',
+  videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747540140/samburuCulture_e4oz5x.mp4',
   featured: false,
   categories: ['Wildlife', 'Samburu', 'Big Cats']
 },

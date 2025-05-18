@@ -473,24 +473,42 @@ const ContactUsPage: React.FC = () => {
                       <option value="9+">9+ People</option>
                     </select>
                   </div>
-                  <div>
-                    <label htmlFor="safariType" className="block text-gray-700 text-sm mb-1">Interested In</label>
-                    <select
-                      id="safariType"
-                      name="safariType"
-                      value={formData.safariType}
-                      onChange={handleInputChange}
-                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    >
-                      <option value="">Select</option>
-                      <option value="Luxury Safari">Luxury Safari</option>
-                      <option value="Budget Safari">Budget Safari</option>
-                      <option value="Family Safari">Family Safari</option>
-                      <option value="Photography Safari">Photography Safari</option>
-                      <option value="Cultural Safari">Cultural Safari</option>
-                      <option value="Custom Itinerary">Custom Itinerary</option>
-                    </select>
-                  </div>
+                 <div>
+              <label htmlFor="safariType" className="block text-gray-700 text-sm mb-1">Interested In</label>
+              <div className="relative">
+                <select
+                  id="safariType"
+                  name="safariType"
+                  value={formData.safariType}
+                  onChange={handleInputChange}
+                   className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none text-ellipsis bg-white"
+                  style={{paddingRight: '2.5rem'}}
+                >
+                  <option value="">Select</option>
+                  <option value="Local & international holidays">Local & international holidays</option>
+                  <option value="Holiday packages (Travel packages)">Holiday packages (Travel packages)</option>
+                  <option value="Luxury safaris">Luxury safaris</option>
+                  <option value="Budget camping safaris">Budget camping safaris</option>
+                  <option value="Air safaris">Air safaris</option>
+                  <option value="Bush Safaris">Bush Safaris</option>
+                  <option value="Desert safaris">Desert safaris</option>
+                  <option value="Beach excursions">Beach excursions</option>
+                  <option value="Honeymoon packages">Honeymoon packages</option>
+                  <option value="Group joining and private safaris">Group joining and private safaris</option>
+                  <option value="Cultural and community safaris">Cultural and community safaris</option>
+                  <option value="Custom safari needs (visa, yellow fever, passport facilitation, Travel insurance)">
+                    Custom safari needs (visa, yellow fever, passport facilitation, Travel insurance)
+                  </option>
+                  <option value="Flight ticketing & Transfers">Flight ticketing & Transfers</option>
+                  <option value="Sports and Golf">Sports and Golf</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                  <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </div>
+                              </div>
                 </div>
                 <div className="mb-4">
                   <label htmlFor="message" className="block text-gray-700 text-sm mb-1">Your Message *</label>

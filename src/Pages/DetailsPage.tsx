@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link,useNavigate } from 'react-router-dom';
 import { safariExperiences } from '../components/services/BushSafaris';
 import { beachExperiences } from '../components/services/BeachExcursions';
 import { airSafariExperiences } from '../components/services/AirSafariExperience';
@@ -9,6 +9,7 @@ import { Navigation } from '../components/Navigation';
 import { TopBar } from '../components/TopBar';
 import Footer from '../components/Footer';
 import axios from 'axios'; // Make sure axios is imported
+import { ArrowLeft } from 'lucide-react';
 
 // Define the Experience type
 interface Experience {
@@ -24,6 +25,7 @@ interface Experience {
 const DetailsPage: React.FC = () => {
   const { id, category } = useParams<{ id: string; category: string }>();
   const [showContactForm, setShowContactForm] = useState<boolean>(false);
+  const navigate=useNavigate()
   
   // Form state
   const [formData, setFormData] = useState({
@@ -172,20 +174,26 @@ const DetailsPage: React.FC = () => {
     <div>
       <TopBar />
       <Navigation />
+      <span onClick={()=>navigate(-1)} className='flex hover:cursor-pointer flex-row ml-6 mt-4'>
+      <ArrowLeft color={'green'} size={25}/>
+      <span className='text-green-700'>
+        Back
+      </span>
+      </span>
       <div className="mx-auto max-w-[50rem] px-4 py-8">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="flex flex-col md:flex-row justify-center items-center">
             {/* Image - full width on mobile, half width on larger screens */}
-            <div className="w-full md:w-1/2">
+            <div className="w-full flex-1 md:w-1/2">
               <img 
                 src={selectedExperience.image} 
                 alt={selectedExperience.title}
-                className="w-full h-72 md:h-80 object-cover rounded-sm"
+                className="w-full h-full object-cover rounded-sm"
               />
             </div>
             
             {/* Content - full width on mobile, half width on larger screens */}
-            <div className="p-4 md:p-6 w-full md:w-1/2">
+            <div className="p-4 flex-1 md:p-6 w-full md:w-1/2">
               <div className="uppercase tracking-wide text-xs text-green-500 font-semibold">
                 {categoryName} • {selectedExperience.location}
               </div>

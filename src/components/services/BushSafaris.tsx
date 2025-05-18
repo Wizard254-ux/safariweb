@@ -11,48 +11,77 @@ interface SafariExperience {
 }
 
 export const safariExperiences: SafariExperience[] = [
-  {
-    id: 'maasai-mara-migration',
-    title: 'Maasai Mara Migration Safari',
-    location: 'Kenya',
-    image: 'https://images.pexels.com/photos/5521703/pexels-photo-5521703.jpeg?auto=compress&cs=tinysrgb&w=600',
-    description: "Witness the incredible wildebeest migration in Kenya's most famous wildlife reserve. This safari focuses on the northern Serengeti ecosystem and Maasai Mara during migration season.",
-    features: [
-      'Game drives to witness the great migration river crossings',
-      'Visit to authentic Maasai village',
-      'Luxury tented accommodation',
-      'Hot air balloon safari option'
-    ],
-    price: 'From $2,800 per person'
-  },
-  {
-    id: 'big-five-kruger',
-    title: 'Big Five Safari Experience',
-    location: 'South Africa',
-    image: 'https://images.pexels.com/photos/4003655/pexels-photo-4003655.jpeg?auto=compress&cs=tinysrgb&w=600',
-    description: "Search for the iconic Big Five (lion, leopard, elephant, rhino, and buffalo) in South Africa's premier game reserve. This safari combines luxury accommodation with incredible wildlife viewing.",
-    features: [
-      'Daily game drives in open safari vehicles',
-      'Night drives to spot nocturnal animals',
-      'Bush walks with armed rangers',
-      'Luxury lodge accommodation with private plunge pools'
-    ],
-    price: 'From $3,200 per person'
-  },
-  {
-    id: 'botswana-delta-experience',
-    title: 'Okavango Delta Safari',
-    location: 'Botswana',
-    image: 'https://images.pexels.com/photos/31030245/pexels-photo-31030245/free-photo-of-close-up-of-two-hippos-partially-submerged-in-water.jpeg?auto=compress&cs=tinysrgb&w=600',
-    description: 'Explore the unique ecosystem of the Okavango Delta, where water and land create a paradise for wildlife. Experience traditional mokoro canoe safaris and walking adventures.',
-    features: [
-      'Mokoro canoe excursions through waterways',
-      'Island walking safaris',
-      'Game drives in private concessions',
-      'Scenic helicopter flight over the delta'
-    ],
-    price: 'From $4,500 per person'
-  }
+{
+  id: 'dar-es-salaam-adventure',
+  title: 'Dar-es-Salaam Adventure Package',
+  location: 'Tanzania',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747540824/DarPic_i2bh5c.jpg',
+  description: "Explore Dar-es-Salaam with a guided city tour, island excursion, and beach experiences. Ideal for those seeking a vibrant coastal city escape.",
+  features: [
+    'Return transport to Dar-es-Salaam (road or air)',
+    '3 nights hotel accommodation (sharing basis)',
+    'Half board meal plan',
+    'Dar-es-Salaam city tour',
+    'Kunduchi wet and wild water park visit',
+    'Mbudya island tour',
+    'Access to Dar-es-Salaam slipway',
+    'Boat rides & Coco Beach visit',
+    'Unlimited professional photography',
+    'Guide fees and drinking water'
+  ],
+  price: 'From KSH 10,000 per person'
+},
+{
+  id: 'maasai-mara-serengeti-ngorongoro-amboseli',
+  title: 'Kenya-Tanzania Multi-Park Safari',
+  location: 'Kenya & Tanzania',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747540754/MaraPicPackage_hyfg0t.jpg',
+  description: "A comprehensive safari covering East Africa’s iconic parks. Includes full-board stays and game drives across Maasai Mara, Serengeti, Ngorongoro, and Amboseli.",
+  features: [
+    '2 nights accommodation at Sarova Mara Camp',
+    '2 nights accommodation at Serengeti',
+    '2 nights accommodation at Ngorongoro',
+    '2 nights accommodation at Amboseli',
+    'Full-board meal plan',
+    'Transport in a Land Cruiser',
+    'Park and conservation fees',
+    'Afternoon and full-day game drives in all parks'
+  ],
+  price: 'USD 4,355 per person (based on 2 pax sharing)'
+},
+{
+  id: 'ngemai-trip',
+  title: 'Ngemai Weekend Getaway',
+  location: 'Kenya',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747540756/NgemaiPic_el17sj.jpg',
+  description: "A short adventure getaway to Ngemai Festival in Naivasha with accommodation, meals, and event access included.",
+  features: [
+    'Transport to and from Ngemai',
+    'Accommodation (sharing basis)',
+    'Meals on half board basis',
+    'Event tickets',
+    'Group activities and entertainment'
+  ],
+  price: 'From KSH 7,900 per person'
+},
+{
+  id: 'mwalimu-mombasa-holiday',
+  title: 'Mwalimu Ji-Bless na a Holiday',
+  location: 'Mombasa, Kenya',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747540755/mombasaPic_kivnpy.jpg',
+  description: 'Enjoy a refreshing 3-day, 2-night beach getaway in Mombasa with convenient SGR travel, full accommodation, and meals at your chosen hotel.',
+  features: [
+    '2-Night Accommodation',
+    'Return SGR economy tickets',
+    'Return SGR transfers',
+    'Meals as per the chosen hotel'
+  ],
+  price: 'From KES 18,950 per person sharing'
+}
+
+
+
+
 ];
 export const BushSafaris: React.FC = () => {
   const navigate=useNavigate()
