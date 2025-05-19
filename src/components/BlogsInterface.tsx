@@ -63,11 +63,11 @@ export interface Post {
       author: 'Sarah Wanjiku',
       date: 'March 28, 2025',
       location: 'Amboseli, Kenya',
-      type: 'blog',
-      thumbnail: 'https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=600',
-      // videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076846/buhmnokcfkaajb7fyzte.mp4',
+      type: 'vlog',
+      thumbnail: 'https://images.pexels.com/photos/1054655/pexels-photo-1054655.jpeg',
+      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076846/buhmnokcfkaajb7fyzte.mp4',
       featured: true,
-      categories: ['Big Cats', 'Amboseli', 'Wildlife']
+      categories: [ 'Amboseli', 'Wildlife']
     },
     {
       id: 'post-3',
@@ -189,9 +189,8 @@ For travelers seeking more than wildlife sightings, Samburu offers a cultural jo
       author: 'Grace Mwangi',
       date: 'March 22, 2025',
       location: 'Tsavo, Kenya',
-      type: 'vlog',
-      thumbnail: 'https://images.pexels.com/photos/1054655/pexels-photo-1054655.jpeg',
-      videoUrl: 'https://res.cloudinary.com/dancxhgah/video/upload/v1747076846/buhmnokcfkaajb7fyzte.mp4',
+      type: 'blog',
+      thumbnail: 'https://images.pexels.com/photos/66898/elephant-cub-tsavo-kenya-66898.jpeg?auto=compress&cs=tinysrgb&w=600',
       featured: true,
       categories: ['Conservation', 'Elephants', 'Tsavo']
     }

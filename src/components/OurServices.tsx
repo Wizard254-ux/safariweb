@@ -2,23 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+
 export const OurServices: React.FC = () => {
-  const servicesList = [
-    "Local & international holidays",
-    "Holiday packages (Travel packages)",
-    "Luxury safaris", 
-    "Budget camping safaris",
-    "Air safaris",
-    "Bush Safaris",
-    "Desert safaris",
-    "Beach excursions",
-    "Honeymoon packages",
-    "Group joining and private safaris",
-    "Cultural and community safaris",
-    "Custom safari needs (visa, yellow fever, passport facilitation, Travel insurance)",
-    "Flight ticketing & Transfers",
-    "Sports and Golf"
-  ];
+  // const servicesList = [
+  //   "Local & international holidays",
+  //   "Holiday packages (Travel packages)",
+  //   "Luxury safaris", 
+  //   "Budget camping safaris",
+  //   "Air safaris",
+  //   "Bush Safaris",
+  //   "Desert safaris",
+  //   "Beach excursions",
+  //   "Honeymoon packages",
+  //   "Group joining and private safaris",
+  //   "Cultural and community safaris",
+  //   "Custom safari needs (visa, yellow fever, passport facilitation, Travel insurance)",
+  //   "Flight ticketing & Transfers",
+  //   "Sports and Golf"
+  // ];
   const navigate=useNavigate()
 
   // Animation variants
@@ -47,7 +48,7 @@ export const OurServices: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-green-800 mb-4"
             variants={itemVariant}
@@ -64,10 +65,10 @@ export const OurServices: React.FC = () => {
           >
             Experience the finest travel adventures with Lynnie Travis Adventures. Our comprehensive range of services ensures unforgettable journeys tailored to your preferences.
           </motion.p>
-        </div>
+        </div> */}
 
         {/* Services Grid */}
-        <motion.div 
+        {/* <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           variants={containerVariant}
         >
@@ -87,7 +88,7 @@ export const OurServices: React.FC = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* CTA Button */}
         <motion.div 

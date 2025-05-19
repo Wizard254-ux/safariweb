@@ -88,12 +88,6 @@ export const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ serviceType })
     ],
     'Travel-Packages': [
       { 
-        id: 1, 
-        image: 'https://images.pexels.com/photos/667200/pexels-photo-667200.jpeg?auto=compress&cs=tinysrgb&w=600', 
-        title: 'Maasai Cultural Heritage Tour', 
-        description: "Experience the vibrant traditions and rituals of Kenya's renowned Maasai warriors"
-      },
-      { 
         id: 2, 
         image: 'https://images.pexels.com/photos/3889891/pexels-photo-3889891.jpeg?auto=compress&cs=tinysrgb&w=600', 
         title: 'Kalahari Desert Indigenous Experience', 

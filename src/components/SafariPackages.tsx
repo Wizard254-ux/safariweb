@@ -852,6 +852,7 @@ export const SafariPackagesComponent = () => {
   ))}
 </motion.div>
 
+
         {/* Safari planning tips section */}
         <AnimateOnScroll className="mt-12 bg-gray-100 rounded-lg p-6" delay={0.2}>
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Safari Planning Tips</h3>

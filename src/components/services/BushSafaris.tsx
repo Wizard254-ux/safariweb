@@ -32,6 +32,85 @@ export const safariExperiences: SafariExperience[] = [
   price: 'From KSH 10,000 per person'
 },
 {
+  id: 'bangkok-holiday-4-nights',
+  title: 'Bangkok Holiday 4-Nights',
+  location: 'Bangkok, Thailand',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747650157/bangkok_sffrzb.jpg', // Replace with your actual image URL
+  description: "Enjoy a 4-night holiday in Bangkok with return economy flights, airport transfers, daily breakfast, city tours, and exciting activities including a White Orchid cruise dinner, Damnoen Saduak floating market, and Ayutthaya day trip. Rates are subject to change and availability at booking.",
+  features: [
+    'Return economy flight tickets',
+    'Return airport transfers',
+    '4 Nights accommodation on sharing basis',
+    'Daily breakfast',
+    'Bangkok city tour',
+    'White Orchid cruise dinner',
+    'Damnoen Saduak floating market visit',
+    'Ayutthaya day trip',
+    'All activity transfers included'
+  ],
+  price: 'Rates subject to change and availability'
+},
+
+{
+  id: 'explore-bali-komodo',
+  title: 'Explore Bali & Komodo',
+  location: 'Bali & Komodo Islands, Indonesia',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747647838/Bali_komodo_csolek.jpg', // Replace with your actual image URL
+  description: "7 Days 6 Nights adventure exploring Bali’s scenic spots and pristine Komodo Islands including Rinka, Padar, Pink Beach, and Manta Point. Includes daily breakfast, airport transfers, meet & greet, and a relaxing 1-hour Balinese massage. Book now with 30% deposit via Till No. 5179521.",
+  features: [
+    'Return economy flight tickets',
+    'Airport transfers',
+    'Bali meet & greet',
+    '6 Nights accommodation on sharing basis',
+    'Daily breakfast',
+    'Swing & Coffee tour',
+    'Explore Kintamani, Ubud, Nusa Penida, Komodo Islands',
+    'Relaxing 1 hour Balinese massage'
+  ],
+  price: 'KES 299,000 per person (Deposit 30% of total amount)'
+},
+{
+  id: 'tour-europe-2025',
+  title: 'Tour Europe 2025 Package',
+  location: 'Europe (7 Countries)',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747650158/europe-lyn_zz6om9.png', // Replace with your actual image URL
+  description: "Experience a grand tour across 7 stunning European countries including Germany, Belgium, Netherlands, Switzerland, Austria, Italy, and France. Inclusive of flights, 4-star accommodation, guided tours, and travel insurance.",
+  features: [
+    'Accommodation in 4-star hotels',
+    'Daily breakfast',
+    'Entry tickets as per itinerary',
+    'All activities as per package',
+    'European visa fees',
+    'Return international flights',
+    'Tour 7 countries',
+    'Transfers as per package',
+    'City tours as per itinerary',
+    'Travel insurance',
+    'Return airport transfers'
+  ],
+  price: 'From June 15th 2025'
+},
+{
+  id: 'dubai-early-christmas-package',
+  title: 'Early Christmas Group Joining - Dubai Package',
+  location: 'Dubai, UAE',
+  image: 'https://res.cloudinary.com/dancxhgah/image/upload/v1747650168/early-christmas-lynn_zedija.png', // Replace this with your actual image URL
+  description: "Celebrate an early Christmas in Dubai with this exciting group package. Includes flights, hotel stay, desert safari, guided tours, and more — ideal for a memorable holiday experience.",
+  features: [
+    'Economy Flight tickets (Air Arabia or Emirates)',
+    'Return Airport Transfers in Dubai',
+    'Meet & greet assistance at the airport',
+    '5 Nights Accommodation (Sharing)',
+    'Daily Buffet Breakfast',
+    'Desert Safari & BBQ Dinner',
+    'Visit Dubai Mall, Burj Khalifa base, Fountain show, shopping guide',
+    'Marina Dhow Cruise with dinner on sharing basis',
+    'Half Day Dubai Guided City Tour',
+    'All Transfers on sharing basis'
+  ],
+  price: 'From USD 999 (Air Arabia) / USD 1299 (Emirates)'
+},
+{
   id: 'maasai-mara-serengeti-ngorongoro-amboseli',
   title: 'Kenya-Tanzania Multi-Park Safari',
   location: 'Kenya & Tanzania',
@@ -94,10 +173,10 @@ export const BushSafaris: React.FC = () => {
   return (
     <div>
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Bush Safari Experiences</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Travel Experiences</h2>
         <p className="text-lg text-gray-600">
-          Immerse yourself in Africa's incredible wilderness with our carefully selected bush safari experiences.
-          From the plains of the Serengeti to the waterways of the Okavango Delta, witness incredible wildlife in their natural habitat.
+         Each of our travel packages is a bespoke experience, thoughtfully designed to immerse you in the culture, beauty, and adventure of your chosen destination. From Mid- luxury accommodations and seamless transfers to exclusive excursions and personalized touches, we handle every detail so you can focus on making memories. Whether it’s a romantic escape, a family adventure, or a cultural exploration, Lynnie Travis Adventures ensures your trip is perfectly tailored to your desires and delivered with impeccable service.
+
         </p>
       </div>
       
@@ -139,7 +218,8 @@ export const BushSafaris: React.FC = () => {
         </div>
       ))}
     </div>
-      
+        {/* <div className="text-green-600">Effortless luxury travel, thoughtfully curated for unforgettable journey</div> */}
+
       <div className="mt-12 bg-gray-100 rounded-lg p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-4">Safari Planning Guide</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
